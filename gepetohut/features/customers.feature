@@ -15,13 +15,13 @@ Cenário: Cadastrar Cliente
    Após selecionar a opção de cadastro o usuário irá preencher o formulario 
    com suas informações pessoais como: nome , endereço , email , telefone.
 
-   Dado que o cliente está na pagina de cadastro 
+   Dado que o cliente está na pagina de cadastro.
    Quando ele preencher os campos do formulario corretamente.
    Então o sistema deve apresentar uma mensagem de sucesso do cadastro.
 
    Dado que o cliente está na pagina de cadastro.
    Quando ele preencher com email já existente
-   Entã o sistema deve apresentar uma mensagem de erro de usuário ja cadastrado.
+   Então o sistema deve apresentar uma mensagem de erro de usuário ja cadastrado.
 
    Dado que o cliente está na pagina de cadastro.
    Quando ele preencher incompletamente o formulario.
