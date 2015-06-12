@@ -160,6 +160,7 @@ PLATFORMS
 DEPENDENCIES
   capybara (= 2.4.4)
   coffee-rails (~> 4.0.0)
+  cucumber
   cucumber-rails
   database_cleaner
   jbuilder (~> 2.0)
