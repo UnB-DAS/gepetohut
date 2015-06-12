@@ -1,11 +1,17 @@
 source 'https://rubygems.org'
 
+gem 'twitter-bootstrap-rails', '~> 3.2.0'
+
 gem 'rspec-rails', '3.2.0'
 
 group :test do
   gem 'cucumber'
   gem 'cucumber-rails'
 end
+
+gem "therubyracer"
+gem "less-rails"
+gem "twitter-bootstrap-rails"
 
 gem 'capybara', '2.4.4'
 
