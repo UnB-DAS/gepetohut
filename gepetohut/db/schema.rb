@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150613194403) do
+ActiveRecord::Schema.define(version: 20150613195927) do
+
+  create_table "evaluations", force: true do |t|
+    t.integer  "rating_pizzeria"
+    t.integer  "rating_service"
+    t.integer  "rating_pizza"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "restaurants", force: true do |t|
     t.string   "name"
