@@ -16,7 +16,7 @@ Cenário: Cadastrar Cliente
    com suas informações pessoais como: nome , endereço , email , telefone.
 
    Dado que o cliente está na pagina de cadastro.
-   Quando ele preencher os campos do formulario corretamente.
+   Quando ele preencher os campos do formulario de cadastro corretamente e selecionar a opção de cadastro.
    Então o sistema deve apresentar uma mensagem de sucesso do cadastro.
 
    Dado que o cliente está na pagina de cadastro.
