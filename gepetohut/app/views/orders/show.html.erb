@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Total to pay:</strong>
+  <%= @order.total_to_pay %>
+</p>
+
+<p>
+  <strong>Qtd pizzas:</strong>
+  <%= @order.qtd_pizzas %>
+</p>
+
+<p>
+  <strong>Order date:</strong>
+  <%= @order.order_date %>
+</p>
+
+<p>
+  <strong>Departure time:</strong>
+  <%= @order.departure_time %>
+</p>
+
+<p>
+  <strong>Arrival time:</strong>
+  <%= @order.arrival_time %>
+</p>
+
+<p>
+  <strong>Expected arrival:</strong>
+  <%= @order.expected_arrival %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
