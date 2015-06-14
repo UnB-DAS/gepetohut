@@ -123,6 +123,56 @@ footer ul li {
   margin-left: 15px;
 }
 
+.jumbotron{
+    color: white;
+} 
+
+.btn-sample { 
+  color: #ffffff; 
+  background-color: #BD1B1B; 
+  border-color: #000000; 
+} 
+ 
+.btn-sample:hover, 
+.btn-sample:focus, 
+.btn-sample:active, 
+.btn-sample.active, 
+.open .dropdown-toggle.btn-sample { 
+  color: #ffffff; 
+  background-color: #FF0000; 
+  border-color: #000000; 
+} 
+ 
+.btn-sample:active, 
+.btn-sample.active, 
+.open .dropdown-toggle.btn-sample { 
+  background-image: none; 
+} 
+ 
+.btn-sample.disabled, 
+.btn-sample[disabled], 
+fieldset[disabled] .btn-sample, 
+.btn-sample.disabled:hover, 
+.btn-sample[disabled]:hover, 
+fieldset[disabled] .btn-sample:hover, 
+.btn-sample.disabled:focus, 
+.btn-sample[disabled]:focus, 
+fieldset[disabled] .btn-sample:focus, 
+.btn-sample.disabled:active, 
+.btn-sample[disabled]:active, 
+fieldset[disabled] .btn-sample:active, 
+.btn-sample.disabled.active, 
+.btn-sample[disabled].active, 
+fieldset[disabled] .btn-sample.active { 
+  background-color: #BD1B1B; 
+  border-color: #000000; 
+} 
+ 
+.btn-sample .badge { 
+  color: #BD1B1B; 
+  background-color: #ffffff; 
+}
+
 /*
 h1 {
     background-color: #600000;
