@@ -35,6 +35,21 @@ class IngredientsController < ApplicationController
         format.json { render json: @ingredient.errors, status: :unprocessable_entity }
       end
     end
+    
+    # if after need to this code
+    #def create
+    #@event = Event.new(params[:event])
+    #@organizers = Organizer.where(:id => params[:organizing_team])
+    #@event.organizers << @organizers 
+    #associate the selected organizers to the event and create records in the join table
+
+
+    #def update
+    #@event = Event.find(params[:id])
+    #@organizers = Organizer.where(:id => params[:organizing_team])
+    #@event.organizers.destroy_all   #disassociate the already added organizers
+    #@event.organizers << @organizers 
+    #associate the selected organizers to the event and create records in the join table
   end
 
   # PATCH/PUT /ingredients/1
