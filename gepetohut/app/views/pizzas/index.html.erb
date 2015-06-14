@@ -1,29 +1,31 @@
-<h1>Listing pizzas</h1>
+<div class="container">
+  <h1>Pizzas</h1>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Rating</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @pizzas.each do |pizza| %>
+<div class="container">
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <td><%= pizza.name %></td>
-        <td><%= pizza.price %></td>
-        <td><%= pizza.rating %></td>
-        <td><%= link_to 'Show', pizza %></td>
-        <td><%= link_to 'Edit', edit_pizza_path(pizza) %></td>
-        <td><%= link_to 'Destroy', pizza, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Nome</th>
+        <th>Preços</th>
+        <th>Avaliação</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
+    <tbody>
+      <% @pizzas.each do |pizza| %>
+        <tr>
+          <td><%= pizza.name %></td>
+          <td><%= number_to_currency( pizza.price ) %></td>
+          <td><%= pizza.rating %></td>
+          <td><%= button_to 'Editar', edit_pizza_path(pizza), class: "btn btn-primary" %></td>
+          <td><%= button_to 'Remover', pizza, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= button_to 'Criar Nova Pizza', new_pizza_path, class: "btn btn-primary" %>
+</div>
 <br>
-
-<%= link_to 'New Pizza', new_pizza_path %>

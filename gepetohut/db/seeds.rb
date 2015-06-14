@@ -1,6 +1,6 @@
 # PIZZAS
 #
-pizzas = Pizzas.create(
+pizzas = Pizza.create(
   [
     { name: "Alho e Óleo", price: 26.00 },
     { name: "Americana", price: 24.00 },
