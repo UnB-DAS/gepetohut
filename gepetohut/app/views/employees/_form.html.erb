@@ -31,6 +31,14 @@
     <%= f.label :salary %><br>
     <%= f.text_field :salary %>
   </div>
+  <div class="field">
+    <%= f.label "restaurant name" %><br>
+    <% if @employee.restaurant == nil %>
+      <%= f.text_field :restaurant %>
+    <% else %>
+      <%= f.text_field :restaurant, :value => @employee.restaurant.name %>
+    <% end %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
