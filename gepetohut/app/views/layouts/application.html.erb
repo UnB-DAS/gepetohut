@@ -7,8 +7,47 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+ <header style="background: #600000 !important" class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to "Gepetohut", '#', id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-left">
+         <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Resources<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Home",   '#' %></li>
+            <li><%= link_to "Home",   '#' %></li>
+            <li><%= link_to "Home",   '#' %></a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Home",   '#' %></li>
+        <li><%= link_to "Help",   '#' %></li>
+        <li><%= link_to "Log in", '#' %></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="container">
+	<div class="row">
+    <div class="span9"><%= yield %></div>
+  </div>
+</div>
+<footer style="background: #600000 !important" class="footer navbar navbar-fixed-bottom navbar-inverse">
+	<small>
+    The <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
+    by <a href="http://www.michaelhartl.com/">Michael Hartl</a>
+  </small>
+	<nav>
+    <ul>
+      <li><%= link_to "About",   '#' %></li>
+      <li><%= link_to "Contact", '#' %></li>
+      <li><a href="http://news.railstutorial.org/">News</a></li>
+    </ul>
+  </nav>
+</footer>
 </body>
 </html>

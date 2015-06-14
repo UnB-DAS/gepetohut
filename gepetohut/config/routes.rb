@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'home_page/index'
+
+  root 'home_page#index'
+
   resources :ingredients
 
   resources :customers
@@ -8,6 +12,7 @@ Rails.application.routes.draw do
   resources :evaluations
 
   resources :restaurants
+  
   resources :employees  
 
   get 'customers/new' => 'customers#new'
