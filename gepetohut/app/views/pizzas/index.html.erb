@@ -15,17 +15,17 @@
 
     <tbody>
       <% @pizzas.each do |pizza| %>
-        <tr>
+        <tr data-link="<%= pizza_path(pizza) %>">
           <td><%= pizza.name %></td>
           <td><%= number_to_currency( pizza.price ) %></td>
           <td><%= pizza.rating %></td>
-          <td><%= button_to 'Editar', edit_pizza_path(pizza), class: "btn btn-primary" %></td>
+          <td><%= button_to 'Editar', edit_pizza_path(pizza), method: :get, class: "btn btn-primary" %></td>
           <td><%= button_to 'Remover', pizza, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 
-  <%= button_to 'Criar Nova Pizza', new_pizza_path, class: "btn btn-primary" %>
+  <%= button_to 'Criar Nova Pizza', new_pizza_path, method: :get, class: "btn btn-primary" %>
 </div>
 <br>

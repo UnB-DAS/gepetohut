@@ -1,5 +1,11 @@
-<h1>New pizza</h1>
+<div class="container">
+  <h1>Nova Pizza</h1>
+</div>
 
-<%= render 'form' %>
+<div class="container">
+  <%= render 'form' %>
+</div>
 
-<%= link_to 'Back', pizzas_path %>
+<div class="container">
+  <%= link_to raw( "Voltar" ), pizzas_path, class: "btn btn-primary", style: "color: white" %>
+</div>

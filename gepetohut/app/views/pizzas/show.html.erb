@@ -1,19 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @pizza.name %>
-</p>
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">Dados da Pizza</h2>
+    </div>
+    <div class="panel-body">
+      <p>
+        <strong>Name:</strong>
+        <%= @pizza.name %>
+      </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @pizza.price %>
-</p>
+      <p>
+        <strong>Price:</strong>
+        <%= @pizza.price %>
+      </p>
 
-<p>
-  <strong>Rating:</strong>
-  <%= @pizza.rating %>
-</p>
+      <p>
+        <strong>Rating:</strong>
+        <%= @pizza.rating %>
+      </p>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_pizza_path(@pizza) %> |
-<%= link_to 'Back', pizzas_path %>
+<div class="container">
+  <%= button_to "Editar Pizza", edit_pizza_path(@pizza), method: :get, class: "btn btn-primary" %>
+  <%= link_to raw( "Voltar" ), pizzas_path, class: "btn btn-primary", style: "color: white" %>
+</div>
