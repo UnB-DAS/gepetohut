@@ -24,7 +24,10 @@ class EmployeesController < ApplicationController
   # POST /employees
   # POST /employees.json
   def create
-    @employee = Employee.new(employee_params)
+    @restaurant = get_restaurant(employee_params[:restaurant])
+    employee_params_restaurant = employee_params
+    employee_params_restaurant.delete(:restaurant)
+    @employee = @restaurant.employees.new(employee_params_restaurant)
 
     respond_to do |format|
       if @employee.save
@@ -40,8 +43,12 @@ class EmployeesController < ApplicationController
   # PATCH/PUT /employees/1
   # PATCH/PUT /employees/1.json
   def update
+    @restaurant = get_restaurant(employee_params[:restaurant])
+    employee_params_restaurant = employee_params
+    employee_params_restaurant.delete(:restaurant)
+
     respond_to do |format|
-      if @employee.update(employee_params)
+      if @employee.update(employee_params_restaurant)
         format.html { redirect_to @employee, notice: 'Employee was successfully updated.' }
         format.json { render :show, status: :ok, location: @employee }
       else
@@ -69,6 +76,15 @@ class EmployeesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-      params.require(:employee).permit(:name, :cpf, :rh, :phone, :salary)
+      params.require(:employee).permit(:name, :cpf, :rh, :phone, :salary, :restaurant)
+    end
+
+    def get_restaurant(restaurant_name)
+      restaurant = nil
+      if Restaurant.exists?(name: restaurant_name)
+        restaurant = Restaurant.find_by(name: restaurant_name).first
+      else
+        restaurant = Restaurant.create(:name => restaurant_name)
+      end
     end
 end
