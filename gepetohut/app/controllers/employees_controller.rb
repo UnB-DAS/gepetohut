@@ -86,6 +86,5 @@ class EmployeesController < ApplicationController
       else
         restaurant = Restaurant.create(:name => restaurant_name)
       end
-      #byebug
     end
 end
