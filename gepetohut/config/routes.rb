@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :pizzas
+
   resources :evaluations
 
   resources :restaurants
