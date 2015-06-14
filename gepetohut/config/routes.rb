@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :ingredients
 
+  resources :orders
+
   resources :customers
 
   resources :pizzas

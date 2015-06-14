@@ -1,29 +1,30 @@
-<h1>Listing evaluations</h1>
+<div class="container">
+  <h1>Avaliações</h1>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Rating pizzeria</th>
-      <th>Rating service</th>
-      <th>Rating pizza</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @evaluations.each do |evaluation| %>
+<div class="container">
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <td><%= evaluation.rating_pizzeria %></td>
-        <td><%= evaluation.rating_service %></td>
-        <td><%= evaluation.rating_pizza %></td>
-        <td><%= link_to 'Show', evaluation %></td>
-        <td><%= link_to 'Edit', edit_evaluation_path(evaluation) %></td>
-        <td><%= link_to 'Destroy', evaluation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Avaliação da Pizzaria</th>
+        <th>Avaliação do Serviço</th>
+        <th>Avaliação da Pizza</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @evaluations.each do |evaluation| %>
+        <tr data-link="<%= evaluation_path(evaluation) %>">
+          <td><%= evaluation.rating_pizzeria %></td>
+          <td><%= evaluation.rating_service %></td>
+          <td><%= evaluation.rating_pizza %></td>
+          <td><%= button_to 'Editar', edit_evaluation_path(evaluation), method: :get, class: "btn btn-primary" %></td>
+          <td><%= button_to 'Remover', evaluation, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Evaluation', new_evaluation_path %>
+  <%= button_to 'Fazer Nova Avaliação', new_evaluation_path, method: :get, class: "btn btn-primary" %>
+</div>

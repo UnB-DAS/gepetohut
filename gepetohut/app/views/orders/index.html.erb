@@ -1,0 +1,35 @@
+<h1>Listing orders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Total to pay</th>
+      <th>Qtd pizzas</th>
+      <th>Order date</th>
+      <th>Departure time</th>
+      <th>Arrival time</th>
+      <th>Expected arrival</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.total_to_pay %></td>
+        <td><%= order.qtd_pizzas %></td>
+        <td><%= order.order_date %></td>
+        <td><%= order.departure_time %></td>
+        <td><%= order.arrival_time %></td>
+        <td><%= order.expected_arrival %></td>
+        <td><%= link_to 'Show', order %></td>
+        <td><%= link_to 'Edit', edit_order_path(order) %></td>
+        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Order', new_order_path %>

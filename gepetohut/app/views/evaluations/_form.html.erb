@@ -11,19 +11,30 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :rating_pizzeria %><br>
-    <%= f.number_field :rating_pizzeria %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= f.label "Avaliação da Pizzaria" %><br>
+    </div>
+    <div class="panel-body">
+      <%= f.text_field :rating_pizzeria, size: "50", class: "form_control" %><br>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :rating_service %><br>
-    <%= f.number_field :rating_service %>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= f.label "Avaliação do Serviço" %><br>
+    </div>
+    <div class="panel-body">
+      <%= f.text_field :rating_service, size: "50", class: "form_control" %><br>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :rating_pizza %><br>
-    <%= f.number_field :rating_pizza %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= f.label "Avaliação da Pizza" %><br>
+    </div>
+    <div class="panel-body">
+      <%= f.text_field :rating_pizza, size: "50", class: "form_control" %><br>
+    </div>
   </div>
 <% end %>

@@ -1,34 +1,45 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @restaurant.name %>
-</p>
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">Dados do Restaurante</h2>
+    </div>
+    <div class="panel-body">
+      <p>
+        <strong>Nome:</strong>
+        <%= @restaurant.name %>
+      </p>
 
-<p>
-  <strong>Qtd delivery:</strong>
-  <%= @restaurant.qtd_delivery %>
-</p>
+      <p>
+        <strong>Quantidade de Entregadores:</strong>
+        <%= @restaurant.qtd_delivery %>
+      </p>
 
-<p>
-  <strong>Qtd pizzaiolo:</strong>
-  <%= @restaurant.qtd_pizzaiolo %>
-</p>
+      <p>
+        <strong>Quantidade de Pizzaiolos:</strong>
+        <%= @restaurant.qtd_pizzaiolo %>
+      </p>
 
-<p>
-  <strong>Qtd income:</strong>
-  <%= @restaurant.qtd_income %>
-</p>
+      <p>
+        <strong>Faturamento:</strong>
+        <%= @restaurant.qtd_income %>
+      </p>
 
-<p>
-  <strong>Qtd expense:</strong>
-  <%= @restaurant.qtd_expense %>
-</p>
+      <p>
+        <strong>Despesas:</strong>
+        <%= @restaurant.qtd_expense %>
+      </p>
 
-<p>
-  <strong>Rating:</strong>
-  <%= @restaurant.rating %>
-</p>
+      <p>
+        <strong>Avaliação:</strong>
+        <%= @restaurant.rating %>
+      </p>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
+<div class="container">
+  <%= button_to "Editar Restaurante", edit_restaurant_path(@restaurant), method: :get, class: "btn btn-primary" %>
+  <%= link_to raw( "Voltar" ), restaurants_path, class: "btn btn-primary", style: "color: white" %>
+</div>
