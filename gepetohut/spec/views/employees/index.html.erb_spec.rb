@@ -8,14 +8,16 @@ RSpec.describe "employees/index", type: :view do
         :cpf => "Cpf",
         :rh => "Rh",
         :phone => "Phone",
-        :salary => 1.5
+        :salary => 1.5,
+        :restaurant => nil
       ),
       Employee.create!(
         :name => "Name",
         :cpf => "Cpf",
         :rh => "Rh",
         :phone => "Phone",
-        :salary => 1.5
+        :salary => 1.5,
+        :restaurant => nil
       )
     ])
   end

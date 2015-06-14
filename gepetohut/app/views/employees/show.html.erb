@@ -26,7 +26,11 @@
 </p>
 <p>
   <strong>Restaurant:</strong>
-  <%= @employee.restaurant.name %>
+  <% if @employee.restaurant == nil %>
+      <%= @employee.restaurant %>
+    <% else %>
+      <%= @employee.restaurant.name %>
+    <% end %>
 </p>
 
 <%= link_to 'Edit', edit_employee_path(@employee) %> |
