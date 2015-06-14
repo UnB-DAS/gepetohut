@@ -14,3 +14,10 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+
+// This make the row in table became a link
+jQuery(function($) {
+    $("tr[data-link]").click(function() {
+    window.location = this.dataset.link
+    });
+})
