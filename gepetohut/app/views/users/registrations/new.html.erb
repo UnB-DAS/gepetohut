@@ -8,6 +8,24 @@
   <div class="container">
     <div class="panel panel-default">
       <div class="panel-heading">
+        <%= f.label "Nome" %><br>
+      </div>
+      <div class="panel-body">
+        <%= f.text_field :name, size: "50", class: "form_control" %><br>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= f.label "Endereço" %><br>
+      </div>
+      <div class="panel-body">
+        <%= f.text_field :address, size: "50", class: "form_control" %><br>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
         <%= f.label "Email" %><br>
       </div>
       <div class="panel-body">
