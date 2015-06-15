@@ -32,15 +32,13 @@
 	            <td>R$ <%= pizza.price %></td>
 	            <td><%= pizza.rating %></td>
 	            <td>
-					<%= text_field_tag pizza.id.to_s.to_sym, params[pizza.id.to_s.to_sym] %>
+					<%= number_field_tag pizza.id.to_s.to_sym, params[pizza.id.to_s.to_sym], class: "form-control bfh-number", id: "quantity", name: "quantity", min: "1", max: "99", type: "number" %>
 				</td>
 	          </tr>
 	    	<% end %>
     <% end %>
     </tbody>
   </table>
-  <div class="span7 text-center"><%= submit_tag "Montar", class: "btn btn-lg btn-primary btn-sample", style: "color: white;", :name => nil %></div>
+  <div class="span7 text-center"><%= submit_tag "Enviar Pedido", class: "btn btn-lg btn-primary btn-sample", style: "color: white;", :name => nil %></div>
 <% end %>
 </div>
-
-<div class="span7 text-center"><%= link_to "Fazer pedido!", make_order_finish_order_path, class: "btn btn-lg btn-primary btn-sample", style: "color: white;" %>
