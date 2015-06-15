@@ -1,0 +1,48 @@
+<div class="container">
+  <h1>Cadastro</h1>
+</div>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= f.label "Email" %><br>
+      </div>
+      <div class="panel-body">
+        <%= f.text_field :email, size: "50", class: "form_control" %><br>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= f.label "Senha" %><br>
+      </div>
+      <div class="panel-body">
+        <%= f.password_field :password, size: "50", class: "form_control" %><br>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> caracteres, no mínimo)</em>
+        <% end %><br />
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= f.label "Confirmação de Senha" %><br>
+      </div>
+      <div class="panel-body">
+        <%= f.text_field :password_confirmation, size: "50", class: "form_control" %><br>
+      </div>
+    </div>
+
+    <div class="actions">
+    <%= f.submit "Cadastrar", class: "btn btn-success" %>
+  </div>
+
+    <%= render "users/shared/links" %>
+  </div>
+<% end %>
+<br>
+<br>
+<br>
