@@ -9,6 +9,9 @@ gem "factory_girl_rails"
 gem "devise"
 
 gem 'rspec-rails', '3.2.0'
+gem "font-awesome-rails"
+gem 'bootstrap_form'
+
 
 group :test do
   gem 'cucumber'
