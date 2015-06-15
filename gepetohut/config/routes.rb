@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'make_order/index'
+
   devise_for :users
 
   resources :users, only: [:index, :show]
