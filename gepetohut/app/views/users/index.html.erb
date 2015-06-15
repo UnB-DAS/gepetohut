@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>Usuários</h1>
+</div>
+
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Endereço</th>
+        <th>Email</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+        <tr data-link="<%= user_path(user) %>">
+          <td><%= user.name %></td>
+          <td><%= user.address %></td>
+          <td><%= user.email %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<br>
+<br>
+<br>

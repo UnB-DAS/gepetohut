@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  resources :users, only: [:index, :show]
+
   get 'home_page/index'
 
   root 'home_page#index'
@@ -16,7 +19,7 @@ Rails.application.routes.draw do
 
   resources :restaurants
   
-  resources :employees  
+  resources :employees
 
   get 'customers/new' => 'customers#new'
   # The priority is based upon order of creation: first created -> highest priority.

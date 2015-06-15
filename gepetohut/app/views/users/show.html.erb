@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">Dados do Usuário</h2>
+    </div>
+    <div class="panel-body">
+      <p>
+        <strong>Name:</strong>
+        <%= @user.name %>
+      </p>
+
+      <p>
+        <strong>Endereço:</strong>
+        <%= @user.address %>
+      </p>
+
+      <p>
+        <strong>Email:</strong>
+        <%= @user.email %>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <%= link_to raw( "Voltar" ), users_path, class: "btn btn-primary", style: "color: white" %>
+</div>

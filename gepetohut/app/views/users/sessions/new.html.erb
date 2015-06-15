@@ -1,26 +1,39 @@
-<h2>Log in</h2>
+<div class="container">
+  <h1>Entrar</h1>
+</div>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+  <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= f.label "Email" %><br>
+      </div>
+      <div class="panel-body">
+        <%= f.text_field :email, size: "50", class: "form_control" %><br>
+      </div>
     </div>
-  <% end -%>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= f.label "Senha" %><br>
+      </div>
+      <div class="panel-body">
+        <%= f.password_field :password, size: "50", class: "form_control" %><br>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= f.label "Confirmação de Senha" %><br>
+      </div>
+      <div class="panel-body">
+        <%= f.text_field :password_confirmation, size: "50", class: "form_control" %><br>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Entrar", class: "btn btn-success" %>
+    </div>
 <% end %>
 
 <%= render "users/shared/links" %>
