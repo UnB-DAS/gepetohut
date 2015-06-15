@@ -21,7 +21,7 @@ RSpec.describe "customers/edit", type: :view do
 
       assert_select "input#customer_adress[name=?]", "customer[adress]"
 
-      assert_select "textarea#customer_phone[name=?]", "customer[phone]"
+      assert_select "input#customer_phone[name=?]", "customer[phone]"
     end
   end
 end

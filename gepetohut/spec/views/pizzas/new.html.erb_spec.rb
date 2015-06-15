@@ -18,7 +18,7 @@ RSpec.describe "pizzas/new", type: :view do
 
       assert_select "input#pizza_price[name=?]", "pizza[price]"
 
-      assert_select "input#pizza_rating[name=?]", "pizza[rating]"
+      #assert_select "input#pizza_rating[name=?]", "pizza[rating]"
     end
   end
 end
