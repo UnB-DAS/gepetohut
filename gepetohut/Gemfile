@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem "devise"
+
 gem 'rspec-rails', '3.2.0'
 
 group :test do
