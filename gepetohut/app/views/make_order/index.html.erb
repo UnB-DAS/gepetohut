@@ -1,45 +1,46 @@
-<h1>Escolha sua pizza!</h1>
+<h1>Escolha as opções desejadas abaixo!</h1>
 <div class="page-header">
-      </div>
-	<div class="col-md-15">
-          <table class="table">
-            <thead>
-              <tr>
-                <th></th>
-                <th>Tipo de Pizza</th>
-                <th>Hora do Pedido</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-            <% if current_user.orders[0] == nil %>
-              <tr>
-                <td>1</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-              </tr>
-            <% else %>
-              <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
-<% else %>
+  </div>
+<div class="col-md-15">
+<%= form_tag home_page_index_path, :method => 'get', :id => "register-form" do %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Tipo de Pizza</th>
+        <th>Preço</th>
+        <th>Rating</th>
+        <th>Quantidade</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% if Pizza.all[0] == nil %>
+      <tr>
+        <td>1</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>
+			-
+		</td>
+      </tr>
+    <% else %>
+	    	<% @pizzas.each do |pizza| %>
+			  <tr>
+	            <td><%= pizza.id %></td>
+	            <td><%= pizza.name %></td>
+	            <td>R$ <%= pizza.price %></td>
+	            <td><%= pizza.rating %></td>
+	            <td>
+					<%= text_field_tag pizza.id.to_s.to_sym, params[pizza.id.to_s.to_sym] %>
+				</td>
+	          </tr>
+	    	<% end %>
+    <% end %>
+    </tbody>
+  </table>
+  <div class="span7 text-center"><%= submit_tag "Montar", class: "btn btn-lg btn-primary btn-sample", style: "color: white;", :name => nil %></div>
+<% end %>
+</div>
+
+<div class="span7 text-center"><%= link_to "Fazer pedido!", make_order_finish_order_path, class: "btn btn-lg btn-primary btn-sample", style: "color: white;" %>

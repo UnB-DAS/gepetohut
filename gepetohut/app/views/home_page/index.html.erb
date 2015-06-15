@@ -1,3 +1,59 @@
+<% if current_user.present? %>
+	<div style="background: #600000 !important"  class="center jumbotron">
+	  <h1>Bem-Vindo(a) <%= current_user.name %></h1>
+
+	  <h2>
+	    Faça seu pedido e aproveite as pizzas mais gostosas da região!
+	  </h2>
+
+	  <%= link_to "Fazer pedido!", make_order_index_path, class: "btn btn-lg btn-primary btn-sample", style: "color: white" %>
+	</div>
+	  <div class="page-header">
+      </div>
+      <h1>Pedidos Feitos</h1>
+	<div class="col-md-15">
+          <table class="table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Tipo de Pizza</th>
+                <th>Hora do Pedido</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% if current_user.orders[0] == nil %>
+              <tr>
+                <td>1</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+            <% else %>
+              <tr>
+                <td>1</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+<% else %>
+
 <div style="background: #600000 !important"  class="center jumbotron">
   <h1>Bem-Vindo(a) à Gepetohut</h1>
 
@@ -14,3 +70,4 @@
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </div>
 </div>
+<% end %>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'make_order/index'
+  get 'make_order/finish_order'
 
   devise_for :users
 
