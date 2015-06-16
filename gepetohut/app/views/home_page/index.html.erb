@@ -16,9 +16,10 @@
             <thead>
               <tr>
                 <th></th>
-                <th>Tipo de Pizza</th>
+                <th>Código da Pizza</th>
+                <th>Descrição</th>
+                <th>Preço</th>
                 <th>Hora do Pedido</th>
-                <th>Status</th>
               </tr>
             </thead>
             <tbody>
@@ -30,11 +31,12 @@
                 <td>-</td>
               </tr>
             <% else %>
-            <% current_user.orders.each do |order| %>
+            <% current_user.orders[0].pizzas.each do |pizza| %>
 			  <tr>
-	            <td><%= order.id %></td>
-	            <td><%= order.total_to_pay %></td>
-	            <td>R$ <%= order.qtd_pizzas %></td>
+	            <td><%= pizza.id %></td>
+	            <td><%= pizza.name %></td>
+	            <td>R$ <%= pizza.price %></td>
+	            <td><%= pizza.created_at %></td>
 	          </tr>
 	    	<% end %>
 	    	<% end %>
