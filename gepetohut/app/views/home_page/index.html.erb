@@ -15,7 +15,6 @@
           <table class="table">
             <thead>
               <tr>
-                <th></th>
                 <th>Código da Pizza</th>
                 <th>Descrição</th>
                 <th>Preço</th>
@@ -31,7 +30,7 @@
                 <td>-</td>
               </tr>
             <% else %>
-            <% current_user.orders[0].pizzas.each do |pizza| %>
+            <% current_user.orders.last.pizzas.each do |pizza| %>
 			  <tr>
 	            <td><%= pizza.id %></td>
 	            <td><%= pizza.name %></td>
