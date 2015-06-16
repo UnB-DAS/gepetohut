@@ -31,9 +31,9 @@
 	            <td><%= pizza.name %></td>
 	            <td>R$ <%= pizza.price %></td>
 	            <td><%= pizza.rating %></td>
-	            <td>
-					<%= number_field_tag pizza.id.to_s.to_sym, params[pizza.id.to_s.to_sym], class: "form-control bfh-number", id: "quantity", name: "quantity", min: "1", max: "99", type: "number" %>
-				</td>
+	            <td><div class="col-lg-4">
+					<%= number_field_tag pizza.id.to_s.to_sym, params[pizza.id.to_s.to_sym], class: "form-control bfh-number", min: "0", max: "99", type: "number", value: "0" %>
+				</td></div>
 	          </tr>
 	    	<% end %>
     <% end %>

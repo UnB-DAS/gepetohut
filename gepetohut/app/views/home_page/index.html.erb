@@ -24,31 +24,20 @@
             <tbody>
             <% if current_user.orders[0] == nil %>
               <tr>
-                <td>1</td>
+                <td>-</td>
                 <td>-</td>
                 <td>-</td>
                 <td>-</td>
               </tr>
             <% else %>
-              <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <% end %>
+            <% current_user.orders.each do |order| %>
+			  <tr>
+	            <td><%= order.id %></td>
+	            <td><%= order.total_to_pay %></td>
+	            <td>R$ <%= order.qtd_pizzas %></td>
+	          </tr>
+	    	<% end %>
+	    	<% end %>
             </tbody>
           </table>
         </div>
