@@ -13,10 +13,19 @@
 
   <div class="panel panel-default">
     <div class="panel-heading">
+      <%= f.label "Breve descrição" %><br>
+    </div>
+    <div class="panel-body">
+      <%= f.text_area :description, size: "50", class: "form_control" %><br>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
       <%= f.label "Avaliação da Pizzaria" %><br>
     </div>
     <div class="panel-body">
-      <%= f.text_field :rating_pizzeria, size: "50", class: "form_control" %><br>
+      <%= f.number_field :rating_pizzeria, size: "50", class: "form_control" %><br>
     </div>
   </div>
 
@@ -25,7 +34,7 @@
       <%= f.label "Avaliação do Serviço" %><br>
     </div>
     <div class="panel-body">
-      <%= f.text_field :rating_service, size: "50", class: "form_control" %><br>
+      <%= f.number_field :rating_service, size: "50", class: "form_control" %><br>
     </div>
   </div>
 
@@ -34,7 +43,11 @@
       <%= f.label "Avaliação da Pizza" %><br>
     </div>
     <div class="panel-body">
-      <%= f.text_field :rating_pizza, size: "50", class: "form_control" %><br>
+      <%= f.number_field :rating_pizza, size: "50", class: "form_control" %><br>
     </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Fazer Avaliação", class: "btn btn-success" %>
   </div>
 <% end %>

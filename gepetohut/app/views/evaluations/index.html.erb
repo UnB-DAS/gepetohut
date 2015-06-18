@@ -6,6 +6,7 @@
   <table class="table table-hover">
     <thead>
       <tr>
+        <th>Descrição</th>
         <th>Avaliação da Pizzaria</th>
         <th>Avaliação do Serviço</th>
         <th>Avaliação da Pizza</th>
@@ -16,6 +17,7 @@
     <tbody>
       <% @evaluations.each do |evaluation| %>
         <tr data-link="<%= evaluation_path(evaluation) %>">
+          <td><%= evaluation.description %></td>
           <td><%= evaluation.rating_pizzeria %></td>
           <td><%= evaluation.rating_service %></td>
           <td><%= evaluation.rating_pizza %></td>
