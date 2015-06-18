@@ -8,7 +8,6 @@
       <tr>
         <th>Nome</th>
         <th>Preços</th>
-        <th>Avaliação</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -18,7 +17,6 @@
         <tr data-link="<%= pizza_path(pizza) %>">
           <td><%= pizza.name %></td>
           <td><%= number_to_currency( pizza.price ) %></td>
-          <td><%= pizza.rating %></td>
           <td><%= button_to 'Editar', edit_pizza_path(pizza), method: :get, class: "btn btn-primary" %></td>
           <td><%= button_to 'Remover', pizza, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
         </tr>
