@@ -4,8 +4,7 @@ RSpec.describe "pizzas/edit", type: :view do
   before(:each) do
     @pizza = assign(:pizza, Pizza.create!(
       :name => "MyString",
-      :price => "9.99",
-      :rating => 1
+      :price => "9.99"
     ))
   end
 

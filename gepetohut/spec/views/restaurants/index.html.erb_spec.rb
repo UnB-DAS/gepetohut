@@ -8,16 +8,14 @@ RSpec.describe "restaurants/index", type: :view do
         :qtd_delivery => 1,
         :qtd_pizzaiolo => 2,
         :qtd_income => "3",
-        :qtd_expense => "4",
-        :rating => 5
+        :qtd_expense => "4"
       ),
       Restaurant.create!(
         :name => "Name",
         :qtd_delivery => 1,
         :qtd_pizzaiolo => 2,
         :qtd_income => "3",
-        :qtd_expense => "4",
-        :rating => 5
+        :qtd_expense => "4"
       )
     ])
   end
@@ -29,6 +27,5 @@ RSpec.describe "restaurants/index", type: :view do
     assert_select "tr>td", :text => 2.to_s, :count => 2
     assert_select "tr>td", :text => "Name".to_s, :count => 2
     assert_select "tr>td", :text => "Name".to_s, :count => 2
-    assert_select "tr>td", :text => 5.to_s, :count => 2
   end
 end

@@ -5,7 +5,6 @@ RSpec.describe "pizzas/new", type: :view do
     assign(:pizza, Pizza.new(
       :name => "MyString",
       :price => "9.99",
-      :rating => 1
     ))
   end
 

@@ -7,8 +7,7 @@ RSpec.describe "restaurants/edit", type: :view do
       :qtd_delivery => 1,
       :qtd_pizzaiolo => 1,
       :qtd_income => 1.5,
-      :qtd_expense => 1.5,
-      :rating => 1
+      :qtd_expense => 1.5
     ))
   end
 
