@@ -69,6 +69,7 @@ class EvaluationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evaluation_params
-      params.require(:evaluation).permit(:rating_pizzeria, :rating_service, :rating_pizza)
+      params.require(:evaluation).permit(:rating_pizzeria, :rating_service, 
+        :rating_pizza, :description)
     end
 end
