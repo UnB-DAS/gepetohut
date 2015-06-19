@@ -11,35 +11,65 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= f.label "Nome" %><br>
+    </div>
+    <div class="panel-body">
+      <%= f.text_field :name, size: "50", class: "form_control" %><br>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :cpf %><br>
-    <%= f.text_field :cpf %>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= f.label "CPF" %><br>
+    </div>
+    <div class="panel-body">
+      <%= f.text_field :cpf, size: "50", class: "form_control" %><br>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :rh %><br>
-    <%= f.text_field :rh %>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= f.label "RH" %><br>
+    </div>
+    <div class="panel-body">
+      <%= f.text_field :rh, size: "50", class: "form_control" %><br>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= f.label "Telefone" %><br>
+    </div>
+    <div class="panel-body">
+      <%= f.text_field :phone, size: "50", class: "form_control" %><br>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :salary %><br>
-    <%= f.text_field :salary %>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= f.label "Salário" %><br>
+    </div>
+    <div class="panel-body">
+      <%= f.text_field :salary, size: "50", class: "form_control" %><br>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label "restaurant name" %><br>
-    <% if @employee.restaurant == nil %>
-      <%= f.text_field :restaurant %>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= f.label "Pizzaria" %><br>
+    </div>
+    <div class="panel-body">
+      <% if @employee.restaurant == nil %>
+      <%= f.text_field :restaurant, size: "50" %>
     <% else %>
-      <%= f.text_field :restaurant, :value => @employee.restaurant.name %>
-    <% end %>
+      <%= f.text_field :restaurant, size: "50", :value => @employee.restaurant.name %><br>
+      <% end %>
+    </div>
   </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Cadastrar Dados do Funcionário", class: "btn btn-success" %>
   </div>
 <% end %>

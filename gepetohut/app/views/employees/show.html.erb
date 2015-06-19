@@ -1,37 +1,47 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @employee.name %>
-</p>
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">Dados da Pizza</h2>
+    </div>
+    <div class="panel-body">
+      <p>
+        <strong>Name:</strong>
+        <%= @employee.name %>
+      </p>
 
-<p>
-  <strong>Cpf:</strong>
-  <%= @employee.cpf %>
-</p>
+      <p>
+        <strong>Cpf:</strong>
+        <%= @employee.cpf %>
+      </p>
 
-<p>
-  <strong>Rh:</strong>
-  <%= @employee.rh %>
-</p>
+      <p>
+        <strong>Rh:</strong>
+        <%= @employee.rh %>
+      </p>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @employee.phone %>
-</p>
+      <p>
+        <strong>Phone:</strong>
+        <%= @employee.phone %>
+      </p>
 
-<p>
-  <strong>Salary:</strong>
-  <%= @employee.salary %>
-</p>
-<p>
-  <strong>Restaurant:</strong>
-  <% if @employee.restaurant == nil %>
-      <%= @employee.restaurant %>
-    <% else %>
-      <%= @employee.restaurant.name %>
-    <% end %>
-</p>
+      <p>
+        <strong>Salary:</strong>
+        <%= @employee.salary %>
+      </p>
+      <p>
+        <strong>Restaurant:</strong>
+        <% if @employee.restaurant == nil %>
+            <%= @employee.restaurant %>
+          <% else %>
+            <%= @employee.restaurant.name %>
+          <% end %>
+      </p>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_employee_path(@employee) %> |
-<%= link_to 'Back', employees_path %>
+<div class="container">
+  <%= button_to "Editar Funcionário", edit_employee_path(@employee), method: :get, class: "btn btn-primary" %>
+  <%= link_to raw( "Voltar" ), employees_path, class: "btn btn-primary", style: "color: white" %>

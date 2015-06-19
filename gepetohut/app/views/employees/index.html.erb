@@ -1,38 +1,40 @@
-<h1>Listing employees</h1>
+<div class="container">
+  <h1>Funcionários</h1>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Cpf</th>
-      <th>Rh</th>
-      <th>Phone</th>
-      <th>Salary</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @employees.each do |employee| %>
+<div class="container">
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <td><%= employee.name %></td>
-        <td><%= employee.cpf %></td>
-        <td><%= employee.rh %></td>
-        <td><%= employee.phone %></td>
-        <td><%= employee.salary %></td>
-        <% if employee.restaurant == nil %>
-          <td><%= employee.restaurant %></td>
-        <% else %>
-          <td><%= f.text_field :restaurant, :value => @employee.restaurant.name %></td>
-        <% end %>
-        <td><%= link_to 'Show', employee %></td>
-        <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
-        <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>RH</th>
+        <th>Telefone</th>
+        <th>Salário</th>
+        <th>Pizzaria</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @employees.each do |employee| %>
+        <tr data-link="<%= employee_path(employee) %>">
+          <td><%= employee.name %></td>
+          <td><%= employee.cpf %></td>
+          <td><%= employee.rh %></td>
+          <td><%= employee.phone %></td>
+          <td><%= employee.salary %></td>
+          <td><%= employee.restaurant %></td>
+          <td><%= button_to 'Editar', edit_employee_path(employee), method: :get, class: "btn btn-primary" %></td>
+          <td><%= button_to 'Remover', employee, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-danger" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= button_to 'Cadastrar Novo Funcionário', new_employee_path, method: :get, class: "btn btn-primary" %>
+</div>
 
 <br>
-
-<%= link_to 'New Employee', new_employee_path %>
+<br>
+<br>

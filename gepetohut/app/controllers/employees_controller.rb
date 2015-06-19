@@ -82,7 +82,7 @@ class EmployeesController < ApplicationController
     def get_restaurant(restaurant_name)
       restaurant = nil
       if Restaurant.exists?(name: restaurant_name)
-        restaurant = Restaurant.find_by(name: restaurant_name).first
+        restaurant = Restaurant.find_by(name: restaurant_name)
       else
         restaurant = Restaurant.create(:name => restaurant_name)
       end

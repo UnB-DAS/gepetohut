@@ -1,5 +1,5 @@
 class MakeOrderController < ApplicationController
   def index
-  	@pizzas = Pizza.all
+    @pizzas = Pizza.all
   end
 end

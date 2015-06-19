@@ -1,6 +1,11 @@
-<h1>Editing employee</h1>
+<div class="container">
+  <h1>Editar Funcionário</h1>
+</div>
 
-<%= render 'form' %>
+<div class="container">
+  <%= render 'form' %>
+</div>
 
-<%= link_to 'Show', @employee %> |
-<%= link_to 'Back', employees_path %>
+<div class="container">
+  <%= link_to raw( "Voltar" ), employees_path, class: "btn btn-primary", style: "color: white" %>
+</div>
