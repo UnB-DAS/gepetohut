@@ -1,14 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @ingredient.name %>
-</p>
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">Dados da Pizza</h2>
+    </div>
+    <div class="panel-body">
+      <p>
+        <strong>Name:</strong>
+        <%= @ingredient.name %>
+      </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @ingredient.price %>
-</p>
+      <p>
+        <strong>Price:</strong>
+        <%= @ingredient.price %>
+      </p>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_ingredient_path(@ingredient) %> |
-<%= link_to 'Back', ingredients_path %>
+<div class="container">
+  <%= button_to "Editar Ingrediente", edit_ingredient_path(@ingredient), method: :get, class: "btn btn-primary" %>
+  <%= link_to raw( "Voltar" ), ingredients_path, class: "btn btn-primary", style: "color: white" %>
+</div>

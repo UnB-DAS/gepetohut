@@ -1,6 +1,11 @@
-<h1>Editing ingredient</h1>
+<div class="container">
+  <h1>Editar Ingrediente</h1>
+</div>
 
-<%= render 'form' %>
+<div class="container">
+  <%= render 'form' %>
+</div>
 
-<%= link_to 'Show', @ingredient %> |
-<%= link_to 'Back', ingredients_path %>
+<div class="container">
+  <%= link_to raw( "Voltar" ), ingredients_path, class: "btn btn-primary", style: "color: white" %>
+</div>
