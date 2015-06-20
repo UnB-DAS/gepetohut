@@ -1,6 +1,11 @@
-<h1>Editing order</h1>
+<div class="container">
+  <h1>Editar Pedido</h1>
+</div>
 
-<%= render 'form' %>
+<div class="container">
+  <%= render 'form' %>
+</div>
 
-<%= link_to 'Show', @order %> |
-<%= link_to 'Back', orders_path %>
+<div class="container">
+  <%= link_to raw( "Voltar" ), orders_path, class: "btn btn-primary", style: "color: white" %>
+</div>

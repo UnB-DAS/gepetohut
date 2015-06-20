@@ -11,31 +11,52 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :total_to_pay %><br>
-    <%= f.text_field :total_to_pay %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= f.label "Quantidade de Pizzas" %><br>
+    </div>
+    <div class="panel-body">
+      <%= f.text_field :qtd_pizzas, size: "50", class: "form_control" %><br>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :qtd_pizzas %><br>
-    <%= f.number_field :qtd_pizzas %>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= f.label "Data do Pedido" %><br>
+    </div>
+    <div class="panel-body">
+      <%= f.datetime_select :order_date, class: "form_control" %><br>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :order_date %><br>
-    <%= f.datetime_select :order_date %>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= f.label "Horário de Saída" %><br>
+    </div>
+    <div class="panel-body">
+      <%= f.time_select :departure_time, class: "form_control" %><br>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :departure_time %><br>
-    <%= f.time_select :departure_time %>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= f.label "Horário de Chegada" %><br>
+    </div>
+    <div class="panel-body">
+      <%= f.time_select :arrival_time, class: "form_control" %><br>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :arrival_time %><br>
-    <%= f.time_select :arrival_time %>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= f.label "Expectativa de Chegada" %><br>
+    </div>
+    <div class="panel-body">
+      <%= f.time_select :expected_arrival, class: "form_control" %><br>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :expected_arrival %><br>
-    <%= f.time_select :expected_arrival %>
-  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Atualizar Pedido", class: "btn btn-success" %>
   </div>
 <% end %>

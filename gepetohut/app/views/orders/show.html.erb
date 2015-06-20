@@ -1,34 +1,45 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Total to pay:</strong>
-  <%= @order.total_to_pay %>
-</p>
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">Dados da Pizza</h2>
+    </div>
+    <div class="panel-body">
+      <p>
+        <strong>Total to pay:</strong>
+        <%= @order.total_to_pay %>
+      </p>
 
-<p>
-  <strong>Qtd pizzas:</strong>
-  <%= @order.qtd_pizzas %>
-</p>
+      <p>
+        <strong>Qtd pizzas:</strong>
+        <%= @order.qtd_pizzas %>
+      </p>
 
-<p>
-  <strong>Order date:</strong>
-  <%= @order.order_date %>
-</p>
+      <p>
+        <strong>Order date:</strong>
+        <%= @order.order_date %>
+      </p>
 
-<p>
-  <strong>Departure time:</strong>
-  <%= @order.departure_time %>
-</p>
+      <p>
+        <strong>Departure time:</strong>
+        <%= @order.departure_time %>
+      </p>
 
-<p>
-  <strong>Arrival time:</strong>
-  <%= @order.arrival_time %>
-</p>
+      <p>
+        <strong>Arrival time:</strong>
+        <%= @order.arrival_time %>
+      </p>
 
-<p>
-  <strong>Expected arrival:</strong>
-  <%= @order.expected_arrival %>
-</p>
+      <p>
+        <strong>Expected arrival:</strong>
+        <%= @order.expected_arrival %>
+      </p>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<div class="container">
+  <%= button_to "Editar Pizza", edit_order_path(@order), method: :get, class: "btn btn-primary" %>
+  <%= link_to raw( "Voltar" ), orders_path, class: "btn btn-primary", style: "color: white" %>
+</div>

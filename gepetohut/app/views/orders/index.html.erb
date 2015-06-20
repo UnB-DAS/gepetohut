@@ -1,35 +1,39 @@
-<h1>Listing orders</h1>
+<div class="container">
+  <h1>Pedidos</h1>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Total to pay</th>
-      <th>Qtd pizzas</th>
-      <th>Order date</th>
-      <th>Departure time</th>
-      <th>Arrival time</th>
-      <th>Expected arrival</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @orders.each do |order| %>
+<div class="container">
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <td><%= order.total_to_pay %></td>
-        <td><%= order.qtd_pizzas %></td>
-        <td><%= order.order_date %></td>
-        <td><%= order.departure_time %></td>
-        <td><%= order.arrival_time %></td>
-        <td><%= order.expected_arrival %></td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Total a Pagar</th>
+        <th>Quantidade de Pizzas</th>
+        <th>Data do Pedido</th>
+        <th>Horário de Saída</th>
+        <th>Horário de Chegada</th>
+        <th>Expectativa de Chegada</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr data-link="<%= order_path(order) %>">
+          <td><%= order.total_to_pay %></td>
+          <td><%= order.qtd_pizzas %></td>
+          <td><%= order.order_date %></td>
+          <td><%= order.departure_time %></td>
+          <td><%= order.arrival_time %></td>
+          <td><%= order.expected_arrival %></td>
+          <td><%= button_to 'Editar', edit_order_path(order), method: :get, class: "btn btn-primary" %></td>
+          <td><%= button_to 'Remover', order, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= button_to 'Cadastrar Novo Pedido', new_order_path, method: :get, class: "btn btn-primary" %>
+</div>
 <br>
-
-<%= link_to 'New Order', new_order_path %>
+<br>
+<br>
