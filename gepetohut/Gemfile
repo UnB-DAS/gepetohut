@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem "factory_girl"
+gem "factory_girl_rails"
+
 gem "devise"
 
 gem 'rspec-rails', '3.2.0'
