@@ -20,42 +20,6 @@
     </div>
   </div>
 
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <%= f.label "Data do Pedido" %><br>
-    </div>
-    <div class="panel-body">
-      <%= f.datetime_select :order_date, class: "form_control" %><br>
-    </div>
-  </div>
-
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <%= f.label "Horário de Saída" %><br>
-    </div>
-    <div class="panel-body">
-      <%= f.time_select :departure_time, class: "form_control" %><br>
-    </div>
-  </div>
-
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <%= f.label "Horário de Chegada" %><br>
-    </div>
-    <div class="panel-body">
-      <%= f.time_select :arrival_time, class: "form_control" %><br>
-    </div>
-  </div>
-
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <%= f.label "Expectativa de Chegada" %><br>
-    </div>
-    <div class="panel-body">
-      <%= f.time_select :expected_arrival, class: "form_control" %><br>
-    </div>
-  </div>
-
   <div class="actions">
     <%= f.submit "Atualizar Pedido", class: "btn btn-success" %>
   </div>

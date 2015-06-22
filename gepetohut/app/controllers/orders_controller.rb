@@ -26,6 +26,10 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
 
+    @order.order_date = Time.now
+    @order.expected_arrival = (Time.now + 2.hours)
+
+
     respond_to do |format|
       if @order.save
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
