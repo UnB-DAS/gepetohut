@@ -1,3 +1,10 @@
+# PAPÉIS (PERFIS)
+#
+roles = [ "customer", "manager", "admin" ]
+roles.each do |role|
+  Role.find_or_create_by( { name: role } )
+end
+
 # PIZZAS
 #
 pizzas = Pizza.create(
@@ -31,5 +38,24 @@ restaurants = Restaurant.create(
     { name: "GepetoHut: Taguatinga Sul", qtd_delivery: 5, qtd_pizzaiolo: 5 },
     { name: "GepetoHut: Taguatinga Norte", qtd_delivery: 5, qtd_pizzaiolo: 6 },
     { name: "GepetoHut: Taguatinga Centro", qtd_delivery: 7, qtd_pizzaiolo: 6 }
+  ]
+)
+
+# USERS
+#
+users = User.create(
+  [
+    {
+      name: "admin", address: "endereço", email: "admin@gepetohut.com", 
+      password: "12345678"
+    },
+    {
+      name: "manager", address: "endereço", email: "manager@gepetohut.com", 
+      password: "12345678"
+    },
+    {
+      name: "customer", address: "endereço", email: "customer@gepetohut.com", 
+      password: "12345678"
+    }
   ]
 )

@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'cancancan', '~> 1.10'
+gem "rolify"
 
 gem "factory_girl"
 gem "factory_girl_rails"
