@@ -11,14 +11,42 @@
     </div>
   <% end %>
 
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <%= f.label "Quantidade de Pizzas" %><br>
-    </div>
-    <div class="panel-body">
-      <%= f.text_field :qtd_pizzas, size: "50", class: "form_control" %><br>
-    </div>
-  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Tipo de Pizza</th>
+        <th>Preço</th>
+        <th>Quantidade</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% if Pizza.all[0] == nil %>
+      <tr>
+        <td>1</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>
+      -
+    </td>
+      </tr>
+    <% else %>
+        <% @pizzas.each do |pizza| %>
+        <tr>
+              <td><%= pizza.id %></td>
+              <td><%= pizza.name %></td>
+              <td>R$ <%= pizza.price %></td>
+              <td><div class="col-lg-4">
+              <%= f.fields_for :pizzas do |p| %>
+                <%= p.number_field :quantity, class: "form-control bfh-number", min: "0", max: "99", type: "number", value: "0" %>
+              <% end %>
+        </td></div>
+            </tr>
+        <% end %>
+    <% end %>
+    </tbody>
+  </table>
 
   <div class="actions">
     <%= f.submit "Atualizar Pedido", class: "btn btn-success" %>

@@ -18,6 +18,7 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
+    @pizzas = Pizza.all
   end
 
   # GET /orders/1/edit
@@ -27,6 +28,7 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
+    @pizzas = Pizza.all
     @order = Order.new(order_params)
 
     @order.order_date = Time.now
