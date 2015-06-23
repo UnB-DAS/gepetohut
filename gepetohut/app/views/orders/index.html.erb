@@ -6,12 +6,12 @@
   <table class="table table-hover">
     <thead>
       <tr>
+        <th>Código</th>
+        <th>Cliente</th>
         <th>Total a Pagar</th>
-        <th>Quantidade de Pizzas</th>
-        <th>Data do Pedido</th>
-        <th>Horário de Saída</th>
-        <th>Horário de Chegada</th>
-        <th>Expectativa de Chegada</th>
+        <th>Descrição</th>
+        <th>Pizzas Pedidas</th>
+        <th>Status</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -19,12 +19,17 @@
     <tbody>
       <% @orders.each do |order| %>
         <tr data-link="<%= order_path(order) %>">
+          <td><%= order.id %></td>
+          <td><%= order.user.name %></td>
           <td><%= order.total_to_pay %></td>
-          <td><%= order.qtd_pizzas %></td>
-          <td><%= order.order_date %></td>
-          <td><%= order.departure_time %></td>
-          <td><%= order.arrival_time %></td>
-          <td><%= order.expected_arrival %></td>
+          <td><div><%= "Data: #{order.order_date}" %><br>
+                   <%= "Chegada: #{order.expected_arrival}" %><br>
+                   <%= "Quantidade de Pizzas: #{order.qtd_pizzas}" %>
+          </div></td>
+          <td><% order.pizzas.each do |pizza| %>
+                <%= "#{pizza.name} [ #{pizza.quantity} ]" %><br>
+              <% end %></td>
+          <td><%= order.status %></td>
           <td><%= button_to 'Editar', edit_order_path(order), method: :get, class: "btn btn-primary" %></td>
           <td><%= button_to 'Remover', order, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
         </tr>
