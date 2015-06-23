@@ -20,6 +20,7 @@ class PizzasController < ApplicationController
 
   def create
     @pizza = Pizza.new(pizza_params)
+    @pizza.status = "Fazendo"
 
     respond_to do |format|
       if @pizza.save
