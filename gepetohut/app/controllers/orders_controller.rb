@@ -28,9 +28,10 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    @pizzas = Pizza.all
     @order = Order.new(order_params)
 
+
+    @order.status = "Fazendo"
     @order.order_date = Time.now
     @order.expected_arrival = (Time.now + 2.hours)
 
@@ -78,6 +79,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:total_to_pay, :qtd_pizzas, :order_date, :departure_time, :arrival_time, :expected_arrival)
+      params.require(:order).permit(:total_to_pay, :qtd_pizzas, :order_date, :departure_time, :arrival_time, :expected_arrival, :status)
     end
 end
