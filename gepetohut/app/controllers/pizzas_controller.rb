@@ -46,10 +46,7 @@ class PizzasController < ApplicationController
   end
 
   def destroy
-    @pizza.destroy
-    respond_to do |format|
-      format.html { redirect_to pizzas_url, notice: 'Pizza was successfully destroyed.' }
-      format.json { head :no_content }
+    @pizza.status = "Cancelada"
     end
   end
 
