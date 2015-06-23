@@ -9,13 +9,12 @@ class Ability
     elsif user.has_role? :manager
         can :manage, Employee
         can :manage, Pizza
-        can :manage, Ingredients
+        can :manage, Ingredient
         can :update, Restaurant
         can :read, :all
     elsif user.has_role? :customer
-        can :show, :update, User, id: user.id
-        can :create, Pizza
-        can :create, Order
+        can [:show, :update], User, id: user.id
+        can [:create, :show], Order
     end
   end
 end

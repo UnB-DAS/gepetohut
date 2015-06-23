@@ -59,3 +59,19 @@ users = User.create(
     }
   ]
 )
+
+# ADDING ROLES TO USERS
+#
+admin = User.find_by_name( "admin" )
+admin.add_role :admin
+admin.remove_role :customer
+admin.save!
+
+manager = User.find_by_name( "manager" )
+manager.add_role :manager
+manager.remove_role :customer
+manager.save!
+
+customer = User.find_by_name( "customer" )
+customer.add_role :customer
+customer.save!
