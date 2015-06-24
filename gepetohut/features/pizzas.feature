@@ -22,7 +22,7 @@ Cenário: Cadastrar Pizza com sucesso
   E eu estou na página inicial da aplicação
   E eu estou logado
   Quando eu entro na página inicial de pizzas
-  E eu entro clico e acesso a página de cadastro de pizzas
+  E eu clico e acesso a página de cadastro de pizzas
   E eu preencho o campo nome com NOVO SABOR
   E eu preencho o campo preço com 25.90
   E eu clico no botão de criação de pizza

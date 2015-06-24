@@ -47,7 +47,6 @@ class PizzasController < ApplicationController
 
   def destroy
     @pizza.status = "Cancelada"
-    end
   end
 
   private
