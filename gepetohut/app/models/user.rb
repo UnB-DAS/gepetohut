@@ -12,7 +12,11 @@ class User < ActiveRecord::Base
 
   private
   def default_role
-    self.roles << Role.find_by_name( "customer" )
-    self.save!
+    if !self.nil?
+      self.roles << Role.find_by_name( "customer" )
+      self.save!
+    else
+      # Nothin To Do
+    end
   end
 end

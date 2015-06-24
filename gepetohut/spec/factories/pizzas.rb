@@ -1,7 +1,6 @@
 FactoryGirl.define do
-  factory :pizza do
-    name "MyString"
-price "9.99"
+  factory :pizza, class: Pizza do
+    name "calabresa"
+    price "9.99"
   end
-
 end
