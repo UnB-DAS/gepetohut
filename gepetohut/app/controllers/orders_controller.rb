@@ -8,6 +8,11 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
     @orders = Order.all
+
+    @orders.each do |order|
+      order.define_status
+      order.save!
+    end
   end
 
   # GET /orders/1
@@ -23,6 +28,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/1/edit
   def edit
+    @order = Order.find(params[:id])
   end
 
   # POST /orders
@@ -79,6 +85,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:total_to_pay, :qtd_pizzas, :order_date, :expected_arrival, :status)
+      params.require(:order).permit(:total_to_pay, :qtd_pizzas, :order_date, :expected_arrival, :status, pizzas_attributes: [:name, :price, :status, :quantity])
     end
 end

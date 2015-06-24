@@ -3,26 +3,38 @@
 <div class="container">
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h2 class="panel-title">Dados da Pizza</h2>
+      <h2 class="panel-title">Dados do Pedido</h2>
     </div>
     <div class="panel-body">
       <p>
-        <strong>Total to pay:</strong>
+        <strong>Total a Pagar:</strong>
         <%= @order.total_to_pay %>
       </p>
 
       <p>
-        <strong>Qtd pizzas:</strong>
+        <strong>Status do Pedido:</strong>
+        <%= @order.status %>
+      </p>
+
+      <% @order.pizzas.each do |pizza| %>
+        <p>
+            <strong>Status da pizza de <%= pizza.name %>:</strong>
+            <%= pizza.status %>
+        </p>
+      <% end %>
+
+      <p>
+        <strong>Quantidade de Pizzas:</strong>
         <%= @order.qtd_pizzas %>
       </p>
 
       <p>
-        <strong>Order date:</strong>
+        <strong>Data do Pedido:</strong>
         <%= @order.order_date %>
       </p>
 
       <p>
-        <strong>Expected arrival:</strong>
+        <strong>Estimativa de Chegada:</strong>
         <%= @order.expected_arrival %>
       </p>
     </div>
@@ -30,6 +42,6 @@
 </div>
 
 <div class="container">
-  <%= button_to "Editar Pizza", edit_order_path(@order), method: :get, class: "btn btn-primary" %>
+  <%= button_to "Editar Pedido", edit_order_path(@order), method: :get, class: "btn btn-primary" %>
   <%= link_to raw( "Voltar" ), orders_path, class: "btn btn-primary", style: "color: white" %>
 </div>

@@ -15,7 +15,12 @@
     <% @order.pizzas.each do |pizza| %>
       <%= order_form.fields_for :pizzas, pizza do |pizzas_form| %>
         <div class="panel-heading">
-          <%= pizzas_form.label pizza.name %>
+          <% @order.pizzas.to_ary.delete_if{ |pizza| pizza.name.nil? } %>
+          <% puts "SIZE: #{@order.pizzas.size}" %>
+          <% puts "PIZZA NAME: #{pizza.name}" %>
+          <% if !pizza.name.nil? %>
+            <%= pizzas_form.label pizza.name %>
+          <% end %>
         </div>
         <div class="panel-body">
           <%= pizzas_form.label "Status" %>
@@ -26,6 +31,6 @@
   </div>
 
   <div class="form-group">
-    <%= order_form.submit class: "btn btn-primary" %>
+    <%= order_form.submit "Atualizar Pedido", class: "btn btn-primary" %>
   </div>
 <% end %>
