@@ -11,9 +11,19 @@
     </div>
   <% end %>
 
-  <% order_form.fields_for :pizzas do |pizza_form| %>
-    <%= pizza_form.text_field :status %>
-  <% end %>
+  <div class="panel panel-default">
+    <% @order.pizzas.each do |pizza| %>
+      <%= order_form.fields_for :pizzas, pizza do |pizzas_form| %>
+        <div class="panel-heading">
+          <%= pizzas_form.label pizza.name %>
+        </div>
+        <div class="panel-body">
+          <%= pizzas_form.label "Status" %>
+          <%= pizzas_form.select :status, %w[Fazendo Enviando Entregue] %><br>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 
   <div class="form-group">
     <%= order_form.submit class: "btn btn-primary" %>
