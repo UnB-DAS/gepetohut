@@ -19,6 +19,10 @@ E( /^eu clico no botão de criação de pizza$/ ) do
   @pizza = FactoryGirl.create( :pizza )
 end
 
-Então( /^o sistema deve apresentar as informações relativas à nova pizza$/ ) do
+E( /^eu clico na Pizza chamada (.*)$/ ) do |name_pizza|
+  find("##{name_pizza}-row").click
+end
+
+Então( /^o sistema deve apresentar as informações relativas à pizza$/ ) do
   visit pizza_path(@pizza)
 end

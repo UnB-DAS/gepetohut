@@ -14,7 +14,9 @@
 
     <tbody>
       <% @pizzas.each do |pizza| %>
-        <tr data-link="<%= pizza_path(pizza) %>">
+      <% puts "NAME: #{pizza.name}" %>
+      <% puts "#{pizza.name}-row" %>
+        <tr id="<%= pizza.name %>-row" data-link="<%= pizza_path(pizza) %>">
           <td><%= pizza.name %></td>
           <td><%= number_to_currency( pizza.price ) %></td>
           <td><%= button_to 'Editar', edit_pizza_path(pizza), method: :get, class: "btn btn-primary" %></td>

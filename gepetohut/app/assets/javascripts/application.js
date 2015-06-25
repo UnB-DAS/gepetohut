@@ -18,6 +18,6 @@
 // This make the row in table became a link
 jQuery(function($) {
     $("tr[data-link]").click(function() {
-    window.location = this.dataset.link
+        window.location = this.dataset.link
     });
 })
