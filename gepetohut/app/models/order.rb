@@ -11,23 +11,37 @@ class Order < ActiveRecord::Base
   DELIVERED = "Entregue"
 
   def define_status
+    doing_counter = 0
     sending_counter = 0
     delivered_counter = 0
 
     self.pizzas.each do |pizza|
-      if pizza.status == SENDING
+      if pizza.status == DOING
+        doing_counter += 1
+      elsif pizza.status == SENDING
         sending_counter += 1
       elsif pizza.status == DELIVERED
         delivered_counter += 1
       end
     end
 
-    if self.pizzas.size == sending_counter
+    pizzas_size = self.pizzas.size
+
+    if ( doing_counter > 0 &&
+         doing_counter < sending_counter &&
+         doing_counter > delivered_counter ) ||
+       ( doing_counter > sending_counter &&
+         doing_counter > delivered_counter )
+      self.status = DOING
+    elsif ( sending_counter > 0 &&
+            sending_counter < delivered_counter &&
+            sending_counter > doing_counter ) ||
+          ( sending_counter > doing_counter &&
+            sending_counter > delivered_counter )
       self.status = SENDING
-    elsif self.pizzas.size == delivered_counter
+    elsif delivered_counter > sending_counter &&
+          delivered_counter > doing_counter
       self.status = DELIVERED
-    else
-        self.status = DOING
     end
   end
 end
