@@ -26,16 +26,11 @@ class MakeOrderController < ApplicationController
 			if params_pizzas[pizza_id.to_s].to_i != 0
 				for i in 1 .. params_pizzas[pizza_id.to_s].to_i
 					@pizza = Pizza.find(pizza_id)
-					puts "=D"*100
-					puts @pizza.name
-					puts "=D"*100
 					@pizza.quantity = params_pizzas[pizza_id.to_s].to_i
 					@order.pizzas << @pizza
-					puts "=D"*100
-					puts @order.pizzas.last.name
-					puts "=D"*100
 					@order.total_to_pay = @order.total_to_pay + @pizza.price
 					@order.qtd_pizzas = @order.qtd_pizzas + 1
+					@order.order_date = @order.created_at
 				end
 			end
 		@order.save
