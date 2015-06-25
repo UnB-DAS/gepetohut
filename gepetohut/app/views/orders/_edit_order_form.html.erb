@@ -13,18 +13,13 @@
 
   <div class="panel panel-default">
     <% @order.pizzas.each do |pizza| %>
-      <%= order_form.fields_for :pizzas, pizza do |pizzas_form| %>
+      <%= order_form.fields_for :pizzas, pizza do |pizza_form| %>
         <div class="panel-heading">
-          <% @order.pizzas.to_ary.delete_if{ |pizza| pizza.name.nil? } %>
-          <% puts "SIZE: #{@order.pizzas.size}" %>
-          <% puts "PIZZA NAME: #{pizza.name}" %>
-          <% if !pizza.name.nil? %>
-            <%= pizzas_form.label pizza.name %>
-          <% end %>
+          <%= pizza_form.label pizza.name %>
         </div>
         <div class="panel-body">
-          <%= pizzas_form.label "Status" %>
-          <%= pizzas_form.select :status, %w[Fazendo Enviando Entregue] %><br>
+          <%= pizza_form.label "Status" %>
+          <%= pizza_form.select :status, %w[Fazendo Enviando Entregue] %><br>
         </div>
       <% end %>
     <% end %>
