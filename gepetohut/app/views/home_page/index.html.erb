@@ -15,30 +15,39 @@
           <table class="table">
             <thead>
               <tr>
-                <th>Código da Pizza</th>
-                <th>Descrição</th>
-                <th>Preço</th>
-                <th>Hora do Pedido</th>
+                <th>Código da Pedido</th>
+                <th>Total a Pagar</th>
+                <th>Informações</th>
+                <th>Pizzas</th>
+                <th>Status</th>
               </tr>
             </thead>
             <tbody>
-            <% if current_user.orders[0] == nil %>
+            <% if current_user.orders.last == nil %>
               <tr>
+                <td>-</td>
                 <td>-</td>
                 <td>-</td>
                 <td>-</td>
                 <td>-</td>
               </tr>
             <% else %>
-            <% current_user.orders.last.pizzas.each do |pizza| %>
-			  <tr>
-	            <td><%= pizza.id %></td>
-	            <td><%= pizza.name %></td>
-	            <td>R$ <%= pizza.price %></td>
-	            <td><%= pizza.created_at %></td>
-	          </tr>
-	    	<% end %>
-	    	<% end %>
+      <% current_user.orders.each do |order| %>
+          <tr>
+            <td><%= order.id %></td>
+            <td><%= order.total_to_pay %></td>
+            <td><div><%= "Data: #{order.order_date}" %><br>
+                   <%= "Chegada: #{order.expected_arrival}" %><br>
+                   <%= "Quantidade de Pizzas: #{order.qtd_pizzas}" %>
+          </div></td>
+            <td><% order.pizzas.each do |pizza| %>
+                <%= "#{pizza.name} [ #{pizza.quantity} ]" %><br>
+              <% end %></td>
+            <td><%= order.status %></td>
+            <% end %>
+          <% end %>    
+          </tr>
+          
             </tbody>
           </table>
         </div>
