@@ -16,6 +16,7 @@ class Ability
         can [:show, :update], User, id: user.id
         can [:create, :show], Order
         can :read, Pizza
+        can :make_order, :all
     end
   end
 end
