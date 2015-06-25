@@ -18,6 +18,13 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @order = Order.find(params[:id])
+    @pizzas = Pizza.all
+    @pizzas.each do |pizza|
+      if pizza.quantity == 0 && pizza.is_menu == false
+        @pizzas.delete( pizza )
+      end
+    end
   end
 
   # GET /orders/new
