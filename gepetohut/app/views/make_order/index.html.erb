@@ -9,7 +9,6 @@
         <th>Código</th>
         <th>Tipo de Pizza</th>
         <th>Preço</th>
-        <th>Rating</th>
         <th>Quantidade</th>
       </tr>
     </thead>
@@ -30,7 +29,6 @@
 	            <td><%= pizza.id %></td>
 	            <td><%= pizza.name %></td>
 	            <td>R$ <%= pizza.price %></td>
-	            <td><%= pizza.rating %></td>
 	            <td><div class="col-lg-4">
 					<%= number_field_tag pizza.id.to_s.to_sym, params[pizza.id.to_s.to_sym], class: "form-control bfh-number", min: "0", max: "99", type: "number", value: "0" %>
 				</td></div>
