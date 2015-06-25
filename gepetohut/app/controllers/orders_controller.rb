@@ -47,6 +47,7 @@ class OrdersController < ApplicationController
     @order.order_date = Time.now
     @order.expected_arrival = (Time.now + 2.hours)
     @order.total_to_pay = @order.calculate_total_to_pay
+    @order.qtd_pizzas = @order.calculate_quantity
 
 
     respond_to do |format|

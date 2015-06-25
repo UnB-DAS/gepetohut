@@ -56,4 +56,14 @@ class Order < ActiveRecord::Base
 
     total_to_pay
   end
+
+  def calculate_quantity
+    quantity = 0
+
+    self.pizzas.each do |pizza|
+      quantity += pizza.quantity
+    end
+
+    quantity
+  end
 end
