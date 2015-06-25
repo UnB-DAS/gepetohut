@@ -22,8 +22,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
-    @order = Order.new
-    @pizzas = Pizza.all
+    @order = Order.new( user_id: current_user.id )
   end
 
   # GET /orders/1/edit
@@ -85,6 +84,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:total_to_pay, :qtd_pizzas, :order_date, :expected_arrival, :status, pizzas_attributes: [:id, :name, :price, :status, :quantity])
+      params.require(:order).permit(:total_to_pay, :qtd_pizzas, :order_date, :expected_arrival, :status, :user_id, pizzas_attributes: [:id, :name, :price, :status, :quantity, :is_menu])
     end
 end
