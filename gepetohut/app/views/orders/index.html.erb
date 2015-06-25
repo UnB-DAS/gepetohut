@@ -30,8 +30,8 @@
                 <%= "#{pizza.name} [ #{pizza.quantity} ]" %><br>
               <% end %></td>
           <td><%= order.status %></td>
-          <td><%= button_to 'Editar', edit_order_path(order), method: :get, class: "btn btn-primary" %></td>
-          <td><%= button_to 'Remover', order, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+          <td><%= button_to 'Atualizar Status do Pedido', edit_order_path(order), method: :get, class: "btn btn-primary" %></td>
+          <td><%= button_to 'Cancelar', order, method: :delete, data: { confirm: 'Você tem certeza que deseja cancelar seu pedido?' }, class: "btn btn-danger" %></td>
         </tr>
       <% end %>
     </tbody>

@@ -46,6 +46,7 @@ class OrdersController < ApplicationController
     @order.status = "Fazendo"
     @order.order_date = Time.now
     @order.expected_arrival = (Time.now + 2.hours)
+    @order.total_to_pay = @order.calculate_total_to_pay
 
 
     respond_to do |format|

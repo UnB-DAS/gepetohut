@@ -44,4 +44,16 @@ class Order < ActiveRecord::Base
       self.status = DELIVERED
     end
   end
+
+  def calculate_total_to_pay
+    total_to_pay = 0.0
+
+    self.pizzas.each do |pizza|
+      if pizza.quantity > 0
+        total_to_pay += (pizza.price * pizza.quantity)
+      end
+    end
+
+    total_to_pay
+  end
 end
