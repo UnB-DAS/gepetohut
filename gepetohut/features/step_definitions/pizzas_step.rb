@@ -20,9 +20,25 @@ E( /^eu clico no botão de criação de pizza$/ ) do
 end
 
 E( /^eu clico na Pizza chamada (.*)$/ ) do |name_pizza|
-  find("##{name_pizza}-row").click
+  find( "##{name_pizza.delete(' ')}-row" ).click
 end
 
 Então( /^o sistema deve apresentar as informações relativas à pizza$/ ) do
-  visit pizza_path(id: @pizza.id)
+  visit pizza_path(@pizza)
+end
+
+Então( /^o sistema deve retonar uma tabela contendo todas as pizzas$/ ) do
+  YES = true
+
+  @pizzas_in_menu = Pizza.where( is_menu: YES )
+
+  find( "table" )
+  find( "thead" ).find( "tr" ).find( "th", text: "Nome" )
+  find( "thead" ).find( "tr" ).find( "th", text: "Preço" )
+
+  #find( "tbody" )
+  @pizzas_in_menu.each do |pizza|
+    find( "tbody" ).find("##{pizza.name.delete(' ')}-row").find( "td", text: "#{pizza.name}" )
+    find( "tbody" ).find("##{pizza.name.delete(' ')}-row").find( "td", text: "R$ #{pizza.price.round},00" )
+  end
 end
