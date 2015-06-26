@@ -14,8 +14,6 @@
 
     <tbody>
       <% @pizzas.each do |pizza| %>
-      <% puts "NAME: #{pizza.name}" %>
-      <% puts "#{pizza.name}-row" %>
         <tr id="<%= pizza.name %>-row" data-link="<%= pizza_path(pizza) %>">
           <td><%= pizza.name %></td>
           <td><%= number_to_currency( pizza.price ) %></td>

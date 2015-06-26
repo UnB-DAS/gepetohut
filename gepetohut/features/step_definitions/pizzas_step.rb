@@ -1,4 +1,5 @@
 Quando( /^eu entro na página inicial de pizzas$/ ) do
+  @pizza = FactoryGirl.create( :pizza )
   visit pizzas_path
 end
 
@@ -16,7 +17,6 @@ end
 
 E( /^eu clico no botão de criação de pizza$/ ) do
   click_button( "Atualizar Pizza" )
-  @pizza = FactoryGirl.create( :pizza )
 end
 
 E( /^eu clico na Pizza chamada (.*)$/ ) do |name_pizza|
@@ -24,5 +24,5 @@ E( /^eu clico na Pizza chamada (.*)$/ ) do |name_pizza|
 end
 
 Então( /^o sistema deve apresentar as informações relativas à pizza$/ ) do
-  visit pizza_path(@pizza)
+  visit pizza_path(id: @pizza.id)
 end
