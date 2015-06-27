@@ -30,12 +30,12 @@
 
       <p>
         <strong>Data do Pedido:</strong>
-        <%= @order.order_date %>
+        <%= @order.order_date.strftime("%H:%M - %d/%m/%Y") %>
       </p>
 
       <p>
         <strong>Estimativa de Chegada:</strong>
-        <%= @order.expected_arrival %>
+        <%= @order.expected_arrival.strftime("%H:%M - %d/%m/%Y") %>
       </p>
     </div>
   </div>

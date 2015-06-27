@@ -36,8 +36,8 @@
           <tr>
             <td><%= order.id %></td>
             <td><%= order.total_to_pay %></td>
-            <td><div><%= "Data: #{order.order_date}" %><br>
-                   <%= "Chegada: #{order.expected_arrival}" %><br>
+            <td><div><%= "Data: #{order.order_date.strftime("%H:%M - %d/%m/%Y")}" %><br>
+                   <%= "Chegada: #{order.expected_arrival.strftime("%H:%M - %d/%m/%Y")}" %><br>
                    <%= "Quantidade de Pizzas: #{order.qtd_pizzas}" %>
           </div></td>
             <td><% order.pizzas.each do |pizza| %>
