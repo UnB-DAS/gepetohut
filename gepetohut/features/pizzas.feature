@@ -61,7 +61,7 @@ Cenario: Deletar Pizza com sucesso
   E eu estou na página inicial da aplicação
   E eu estou logado
   Quando eu entro na página inicial de pizzas
-  E eu removo a pizza CALABRESA
-  E eu confirmo a deleção da pizza
-  Então o sistema deve retornar para a página inicial de pizzas
-  E apresentar uma tabela sem o item deletado
+  E eu removo a pizza Calabresa
+  E eu confirmo a deleção da pizza de Calabresa
+  Então o sistema deve retonar uma tabela contendo todas as pizzas
+  Mas sem a pizza de Calabresa
