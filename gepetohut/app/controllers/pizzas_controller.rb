@@ -47,6 +47,9 @@ class PizzasController < ApplicationController
 
   def destroy
     @pizza.status = "Cancelada"
+    @pizzas_menu = Pizza.where( is_menu: true ).delete( @pizza )
+
+    redirect_to pizzas_path
   end
 
   private
