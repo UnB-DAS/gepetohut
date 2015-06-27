@@ -51,7 +51,7 @@ Cenário: Listar Pizzas com sucesso
   Quando eu entro na página inicial de pizzas
   Então o sistema deve retonar uma tabela contendo todas as pizzas
 
-Cenario: Deletar Pizza com sucesso
+Cenário: Deletar Pizza com sucesso
   Após o gerente ter feito o login na aplicação e entrada na página inicial de 
   pizzas, ele clica na Pizza que deseja remover e, depois de confirmar a 
   deleção, não é mais capaz de visualizar a pizza deletada na página inicial 
