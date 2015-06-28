@@ -15,7 +15,7 @@
 
     <tbody>
       <% @users.each do |user| %>
-        <tr data-link="<%= user_path(user) %>">
+        <tr id="<%= user.name.delete(' ') %>-row" data-link="<%= user_path(user) %>">
           <td><%= user.name %></td>
           <td><%= user.address %></td>
           <td><%= user.email %></td>

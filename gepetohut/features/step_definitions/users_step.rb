@@ -4,6 +4,10 @@ Quando( /^eu entro na página de cadastro de usuário$/ ) do
   visit new_user_registration_path
 end
 
+Quando(/^eu entro na página inicial de usuários$/) do
+  visit users_path
+end
+
 E( /^eu preencho o campo nome do usuário com (.*)$/ ) do |name|
   page.fill_in( "user-name", with: name )
 end
@@ -29,6 +33,15 @@ E( /^eu clico no botão Cadastrar$/ ) do
   click_button( "Cadastrar" )
 end
 
+E(/^eu clico no usuário chamado (.*)$/) do |name|
+  find( "##{name.delete(' ')}-row" ).click
+  @customer = User.find_by( name: "customer" )
+end
+
 Então(/^o sistema deve retornar para a página inicial da aplicação$/) do
   visit home_page_index_path
+end
+
+Então(/^o sistema deve apresentar as informações relativas ao usuário$/) do
+  visit user_path(@customer)
 end
