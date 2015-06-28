@@ -17,14 +17,13 @@ Cenário: Cadastrar Usuário com sucesso
   Dado que eu sou cliente
   E eu estou na página inicial da aplicação
   Quando eu entro na página de cadastro de usuário
-  E eu preencho o campo nome com José
+  E eu preencho o campo nome do usuário com José
   E eu preencho o campo endereço com Taguatinga Norte
   E eu preencho o campo email com jose@gmail.com
   E eu preencho o campo senha com 12345678
   E eu preencho o campo de confirmação de senha com 12345678
   E eu clico no botão Cadastrar
   Então o sistema deve retornar para a página inicial da aplicação
-  E apresentar na barra superior uma mensagem de boas vindas
 
 Cenário: Visualizar Usuário com sucesso
   Após o gerente ter feito o login na aplicação e entrado na página inicial de
