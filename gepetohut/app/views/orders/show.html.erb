@@ -42,6 +42,10 @@
 </div>
 
 <div class="container">
-  <%= button_to "Editar Pedido", edit_order_path(@order), method: :get, class: "btn btn-primary" %>
-  <%= link_to raw( "Voltar" ), orders_path, class: "btn btn-primary", style: "color: white" %>
+  <% if can? :update, Order %>
+    <%= button_to "Editar Pedido", edit_order_path(@order), method: :get, class: "btn btn-primary" %>
+    <%= link_to raw( "Voltar" ), orders_path, class: "btn btn-primary", style: "color: white" %>
+  <% else %>
+  <%= link_to raw( "Voltar" ), home_page_index_path, class: "btn btn-primary", style: "color: white" %>
+  <% end %>
 </div>
