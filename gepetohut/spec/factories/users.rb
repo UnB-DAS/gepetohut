@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :admin, class: User do
-    name "admin"
-    address "endereço"
+    name "administrator"
+    address "endereço_administrator"
     email "admin_user@gepetohut.com"
     password "12345678"
 
@@ -12,8 +12,8 @@ FactoryGirl.define do
   end
 
   factory :manager, class: User do
-    name "manager"
-    address "endereço"
+    name "authority"
+    address "endereço_authority"
     email "manager_user@gepetohut.com"
     password "12345678"
 
@@ -24,8 +24,8 @@ FactoryGirl.define do
   end
 
   factory :customer, class: User do
-    name "customer"
-    address "endereço"
+    name "guest"
+    address "endereço_guest"
     email "customer_user@gepetohut.com"
     password "12345678"
 

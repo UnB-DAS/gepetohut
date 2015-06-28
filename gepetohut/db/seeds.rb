@@ -46,15 +46,15 @@ restaurants = Restaurant.create(
 users = User.create(
   [
     {
-      name: "admin", address: "endereço", email: "admin@gepetohut.com", 
+      name: "admin", address: "endereço admin", email: "admin@gepetohut.com", 
       password: "12345678"
     },
     {
-      name: "manager", address: "endereço", email: "manager@gepetohut.com", 
+      name: "manager", address: "endereço manager", email: "manager@gepetohut.com", 
       password: "12345678"
     },
     {
-      name: "customer", address: "endereço", email: "customer@gepetohut.com", 
+      name: "customer", address: "endereço customer", email: "customer@gepetohut.com", 
       password: "12345678"
     }
   ]

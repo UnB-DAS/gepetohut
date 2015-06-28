@@ -45,3 +45,16 @@ end
 Então(/^o sistema deve apresentar as informações relativas ao usuário$/) do
   visit user_path(@customer)
 end
+
+Então(/^o sistema deve retonar uma tabela contendo todos os usuários$/) do
+  find( "table" )
+  find( "thead" ).find( "tr" ).find( "th", text: "Nome" )
+  find( "thead" ).find( "tr" ).find( "th", text: "Endereço" )
+  find( "thead" ).find( "tr" ).find( "th", text: "Email" )
+
+  User.all.each do |user|
+    find( "tbody" ).find( "##{user.name.delete(' ')}-row" ).find( "td", text: /\A#{user.name}\z/ )
+    find( "tbody" ).find( "##{user.name.delete(' ')}-row" ).find( "td", text: "#{user.address}" )
+    find( "tbody" ).find( "##{user.name.delete(' ')}-row" ).find( "td", text: "#{user.email}" )
+  end
+end
