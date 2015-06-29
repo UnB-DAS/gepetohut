@@ -1,23 +1,62 @@
 # language: pt
 
-Funcionalidade: Fazer Pedido
-Eu, como cliente
-Quero realizar um pedido online
-Para efetuar pedido sem necessidade de ir até uma pizzaria.
+Funcionalidade: Manter Pedido
+  Eu, como dono da pizzaria,
+  Quero manter pedido
+  Para ter maior controle dos pedidos da pizzaria.
 
-Dessa forma, será possível ao cliente fazer um pedido de pizza e
-Dessa forma, será possível ao cliente ver os pedidos de pizza feito.
+  Dessa forma poderei permitir o cadastro, edição, visualização
+  e deleção de pedidos.
 
-Cenário: Cadastrar Pedido de Pizza
-Após o cliente ter feito login na aplicação e entrado na página inicial de 
-pizzas, ele entre em Pedidos, indere a quantidade de pizzas que deseja.
-Ao finalizar o pedido, ele visualiza as informações e retorna a página inicial.
+Cenário: Cadastrar Pedido com sucesso
+  Após o gerente ter feito o login na aplicação e entrado na página inicial da 
+  pedido, ele entra na página de cadastro de pedidos, insere os dados relativos 
+  ao pedido. Ao finalizar o cadastro uma mensagem contendo um 
+  resumo do novo pedido é apresentado.
 
-  Dado que eu sou cliente
+  Dado que eu sou gerente
   E eu estou na página inicial da aplicação
   E eu estou logado
-  Quando eu clico em Pedidos
-  E eu preencho a quantidade de pizza de Americana com quantidade 1
-  E eu clico no botão de Realizar Pedido
-  Então o sistema deve apresentar as informações relativas ao pedido
+  Quando eu entro na página principal de pedidos
+  E clico em cadastrar novo pedido
+  E eu preencho o campo quantidade com 1 da pizza Americana
+  E eu clico no botão de realização de pedido
+  Então o sistema deve apresentar as informações relativas ao pedido.
 
+Cenário: Visualizar Pedido com sucesso
+  Após o gerente ter feito o login na aplicação e entrado na página inicial de 
+  pedidos, ele clica no Pedido que deseja visualizar, sendo capaz de enxergar as 
+  informações relacionadas ao pedido.
+
+  Dado que eu sou gerente
+  E eu estou na página inicial da aplicação
+  E eu estou logado
+  Quando eu entro na página inicial de pizzas
+  E eu clico no primeiro pedido listado
+  Então o sistema deve apresentar as informações relativas a esse pedido.
+
+Cenário: Listar Pedido com sucesso
+  Após o gerente ter feito o login na aplicação e entrado na página inicial de 
+  pedidos, ele deve ser capaz de visualizar uma tabela contendo todos os 
+  pedidos registrados.
+
+  Dado que eu sou gerente
+  E eu estou na página inicial da aplicação
+  E eu estou logado
+  Quando eu entro na página inicial de pedidos
+  Então o sistema deve retonar uma tabela contendo todas os pedidos
+
+Cenário: Cancelar Pedido com sucesso
+  Após o gerente ter feito o login na aplicação e entrada na página inicial de 
+  pedidos, ele clica no que deseja cancelar e, depois de confirmar o 
+  cancelamento, não é mais capaz de visualizar o pedido cancelado
+  na página inicial de pedidos.
+
+  Dado que eu sou gerente
+  E eu estou na página inicial da aplicação
+  E eu estou logado
+  Quando eu entro na página inicial de pedidos
+  E eu cancelo o primeiro pedido
+  E eu confirmo o cancelamento desse pedido
+  Então o sistema deve retonar uma tabela contendo todos os pedidos
+  Mas sem a pedido cancelado.
