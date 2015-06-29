@@ -1,9 +1,6 @@
 <%= form_for(@order) do |order_form| %>
   <% if @order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
-
-      <ul>
+    <div class="alert alert-danger">
       <% @order.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>

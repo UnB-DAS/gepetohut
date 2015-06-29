@@ -1,9 +1,6 @@
 <%= form_for(@pizza) do |f| %>
   <% if @pizza.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@pizza.errors.count, "error") %> prohibited this pizza from being saved:</h2>
-
-      <ul>
+    <div class="alert alert-danger">
       <% @pizza.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>

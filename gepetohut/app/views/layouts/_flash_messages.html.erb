@@ -1,0 +1,25 @@
+<script type="text/javascript">
+    window.setTimeout(function() {
+        $(".alert").fadeTo(500, 0).slideUp(500, function(){
+            $(this).remove();
+        });
+    }, 5000);
+</script>
+<% flash.each do |type, message| %>
+    <% if type == "error" %>
+      <div class="margin-top-20 alert alert-danger %> fade in">
+        <button class="close" data-dismiss="alert">×</button>
+        <%= message %>
+      </div>
+    <%elsif type == "alert"%>
+        <div class="margin-top-20 alert alert-warning %> fade in">
+          <button class="close" data-dismiss="alert">×</button>
+          <%= message %>
+        </div> 
+    <%else%>
+        <div class="margin-top-20 alert alert-success %> fade in">
+          <button class="close" data-dismiss="alert">×</button>
+          <%= message %>
+        </div> 
+    <% end %>
+<% end %>

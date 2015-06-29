@@ -14,7 +14,7 @@
 
     <tbody>
       <% @pizzas.each do |pizza| %>
-        <tr id="<%= pizza.id.delete(' ') %>-row" data-link="<%= pizza_path(pizza) %>">
+        <tr id="<%= pizza.name.delete(' ') %>-row" data-link="<%= pizza_path(pizza) %>">
           <td><%= pizza.name %></td>
           <td><%= number_to_currency( pizza.price ) %></td>
           <td><%= button_to 'Editar', edit_pizza_path(pizza), method: :get, class: "btn btn-primary" %></td>
