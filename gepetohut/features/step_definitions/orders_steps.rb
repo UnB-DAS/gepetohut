@@ -26,6 +26,19 @@ E(/^eu clico no primeiro pedido listado$/) do
   find( "#100-row" ).click
 end
 
-Então(/^o sistema deve retonar uma tabela contendo todas os pedidos.$/) do
+Então(/^o sistema deve retornar uma tabela contendo todas os pedidos$/) do
   visit orders_path
+end
+
+E(/^eu cancelo o primeiro pedido$/) do
+  find( "#100-row" ).click_button( "Cancelar" )
+end
+
+E( /^eu confirmo o cancelamento desse pedido$/ ) do 
+  @order.delete
+end
+
+Mas(/^sem a pedido cancelado.$/) do
+  orders = Order.all
+  expect( orders.include?( @order ) ).to be false
 end

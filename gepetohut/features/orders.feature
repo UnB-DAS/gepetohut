@@ -43,7 +43,7 @@ Cenário: Listar Pedido com sucesso
   E eu estou na página inicial da aplicação
   E eu estou logado
   Quando eu entro na página inicial de pedidos
-  Então o sistema deve retonar uma tabela contendo todas os pedidos.
+  Então o sistema deve retornar uma tabela contendo todas os pedidos
 
 Cenário: Cancelar Pedido com sucesso
   Após o gerente ter feito o login na aplicação e entrada na página inicial de 
@@ -51,11 +51,11 @@ Cenário: Cancelar Pedido com sucesso
   cancelamento, não é mais capaz de visualizar o pedido cancelado
   na página inicial de pedidos.
 
-  Dado que eu sou gerente
+  Dado que eu sou administrador
   E eu estou na página inicial da aplicação
   E eu estou logado
   Quando eu entro na página inicial de pedidos
   E eu cancelo o primeiro pedido
   E eu confirmo o cancelamento desse pedido
-  Então o sistema deve retonar uma tabela contendo todos os pedidos
+  Então o sistema deve retornar uma tabela contendo todas os pedidos
   Mas sem a pedido cancelado.
