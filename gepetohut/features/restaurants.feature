@@ -19,7 +19,7 @@ Cenário: Cadastrar Restaurante com sucesso
   E eu estou logado
   Quando eu entro na página inicial de restaurantes
   E eu clico e acesso a página de cadastro de restaurantes
-  E eu preencho o campo nome com GepetoHut: Ceilândia
+  E eu preencho o campo nome GepetoHut: Ceilândia
   E eu preencho o campo de entregadores com 2
   E eu preencho o campo de pizzaiolos com 3
   E eu clico no botão de atualizar restaurante
