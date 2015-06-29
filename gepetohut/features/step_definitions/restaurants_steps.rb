@@ -9,7 +9,7 @@ E( /^eu clico e acesso a página de cadastro de restaurantes$/ ) do
   click_button( "Cadastrar Novo Restaurante" )
 end
 
-E( /^eu preencho o campo nome (.*)$/ ) do |name|
+E( /^eu preencho o campo nome do restaurante (.*)$/ ) do |name|
   page.fill_in( "name-restaurant", with: name )
 end
 

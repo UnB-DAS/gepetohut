@@ -11,7 +11,7 @@ E( /^eu clico e acesso a página de cadastro de pizzas$/ ) do
   click_button( "Criar Nova Pizza" )
 end
 
-E( /^eu preencho o campo nome com (.*)$/ ) do |name|
+E( /^eu preencho o campo nome da pizza com (.*)$/ ) do |name|
   page.fill_in( "name-field", with: name )
 end
 

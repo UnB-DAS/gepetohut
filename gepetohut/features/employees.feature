@@ -22,7 +22,7 @@ Cenário: Cadastrar Funcinário com sucesso
   E eu estou logado
   Quando eu entro na página inicial de funcionários
   E eu clico e acesso a página de cadastro de funcionários
-  E eu preencho o campo nome com João Santos
+  E eu preencho o campo nome do funcionário com João Santos
   E eu preencho o campo CPF com 575.379.016-00
   E eu preencho o campo rg com 2.977.269
   E eu clico no botão de criação de Cadastrar Dados do Funcionário
@@ -50,11 +50,11 @@ Cenário: Listar Funcionários com sucesso
   Quando eu entro na página inicial de funcionários
   Então o sistema deve retonar uma tabela contendo todos os funcionários cadastrados
 
-Cenário: Deletar Pizza com sucesso
+Cenário: Deletar Funcionário com sucesso
   Após o gerente ter feito o login na aplicação e entrada na página inicial de 
-  pizzas, ele clica na Pizza que deseja remover e, depois de confirmar a 
-  deleção, não é mais capaz de visualizar a pizza deletada na página inicial 
-  de pizzas.
+  funcionários, ele clica no funcionário que deseja remover e, depois de 
+  confirmar a deleção, não é mais capaz de visualizar o funcionário deletado 
+  na página inicial de funcionários.
 
   Dado que eu sou gerente
   E eu estou na página inicial da aplicação

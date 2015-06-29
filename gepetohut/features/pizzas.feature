@@ -23,7 +23,7 @@ Cenário: Cadastrar Pizza com sucesso
   E eu estou logado
   Quando eu entro na página inicial de pizzas
   E eu clico e acesso a página de cadastro de pizzas
-  E eu preencho o campo nome com Calabresa
+  E eu preencho o campo nome da pizza com Calabresa
   E eu preencho o campo preço com 25.90
   E eu clico no botão de criação de pizza
   Então o sistema deve apresentar as informações relativas à pizza
