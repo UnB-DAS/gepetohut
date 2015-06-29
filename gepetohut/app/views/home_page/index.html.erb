@@ -36,14 +36,19 @@
               <tr>
                 <td><%= order.id %></td>
                 <td><%= order.total_to_pay %></td>
-                <td><div><%= "Data: #{order.order_date.strftime("%H:%M - %d/%m/%Y")}" %><br>
-                 <%= "Chegada: #{order.expected_arrival.strftime("%H:%M - %d/%m/%Y")}" %><br>
+                <td><div><%= "Data: #{order.order_date.strftime("%H:%M")}" %><br>
+                 <%= "Chegada: #{order.expected_arrival.strftime("%H:%M")}" %><br>
                  <%= "Quantidade de Pizzas: #{order.qtd_pizzas}" %>
                 </div></td>
                 <td><% order.pizzas.each do |pizza| %>
                       <%= "#{pizza.name} [ #{pizza.quantity} ]" %><br>
                     <% end %></td>
                 <td><%= order.status %></td>
+                <td class="span7 text-center">
+                <% if order.status.eql?( "Entregue" ) %>
+                  <%= button_to 'Avaliar Serviço', new_evaluation_path, method: :get, class: "btn btn-primary" %>
+                <% end %>
+                </td>
               </tr>
             <% end %>
           <% end %>

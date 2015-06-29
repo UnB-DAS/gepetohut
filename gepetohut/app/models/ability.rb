@@ -15,6 +15,7 @@ class Ability
     elsif user.has_role? :customer
         can [:show, :update], User, id: user.id
         can [:create, :show], Order
+        can :create, Evaluation
         can :read, Pizza
     end
   end
