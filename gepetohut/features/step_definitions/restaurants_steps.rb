@@ -1,5 +1,6 @@
 Quando( /^eu entro na página inicial de restaurantes$/ ) do
   @restaurant = FactoryGirl.create( :restaurant )
+  @restaurants = Restaurant.all
 
   visit restaurants_path
 end
@@ -32,3 +33,20 @@ E( /^eu clico no restaurante de Ceilandia$/ ) do
   find( '#100-res' ).click
 end
 
+Então( /^o sistema deve apresentar as informações relativas a unidade de Ceilandia$/) do
+  visit restaurant_path(@restaurant)
+end
+
+
+Então( /^o sistema deve retonar uma lista contendo todas as unidades cadastradas$/) do
+  find( "table" )
+  find( "thead" ).find( "tr" ).find( "th", text: "Nome" )
+  find( "thead" ).find( "tr" ).find( "th", text: "Quantidade de Entregadores" )
+  find( "thead" ).find( "tr" ).find( "th", text: "Quantidade de Pizzaiolos" )
+  find( "thead" ).find( "tr" ).find( "th", text: "Faturamento" )
+  find( "thead" ).find( "tr" ).find( "th", text: "Despesas" )
+
+  @restaurants.each do |restaurant|
+    find( "tbody" ).find("##{restaurant.id}-res").find( "td", text: "#{restaurant.name}" )
+  end
+end
