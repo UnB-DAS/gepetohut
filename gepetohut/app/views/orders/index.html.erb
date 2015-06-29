@@ -37,7 +37,9 @@
     </tbody>
   </table>
 
-  <%= button_to 'Cadastrar Novo Pedido', new_order_path, method: :get, class: "btn btn-primary" %>
+  <% if can? :create, Order %>
+    <%= button_to 'Cadastrar Novo Pedido', new_order_path, method: :get, class: "btn btn-primary" %>
+  <% end %>
 </div>
 <br>
 <br>

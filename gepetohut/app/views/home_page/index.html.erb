@@ -1,71 +1,86 @@
 <% if current_user.present? %>
-	<div style="background: #600000 !important"  class="center jumbotron">
-	  <h1>Bem-Vindo(a) <%= current_user.name %></h1>
+  <% if can? :create, Order %>
+    <div style="background: #600000 !important"  class="center jumbotron">
+      <h1>Bem-Vindo(a) <%= current_user.name %></h1>
 
-	  <h2>
-	    Faça seu pedido e aproveite as pizzas mais gostosas da região!
-	  </h2>
+      <h2>
+        Faça seu pedido e aproveite as pizzas mais gostosas da região!
+      </h2>
 
-	  <%= link_to "Fazer pedido!", new_order_path, class: "btn btn-lg btn-primary btn-sample", style: "color: white" %>
-	</div>
-	  <div class="page-header">
-      </div>
-      <h1>Pedidos Feitos</h1>
-	<div class="col-md-15">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Código da Pedido</th>
-                <th>Total a Pagar</th>
-                <th>Informações</th>
-                <th>Pizzas</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-            <% if current_user.orders.last == nil %>
-              <tr>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-              </tr>
-            <% else %>
-      <% current_user.orders.each do |order| %>
+      <%= link_to "Fazer pedido!", new_order_path, class: "btn btn-lg btn-primary btn-sample", style: "color: white" %>
+    </div>
+    <div class="page-header"></div>
+    <h1>Pedidos Feitos</h1>
+    <div class="col-md-15">
+      <table class="table">
+        <thead>
           <tr>
-            <td><%= order.id %></td>
-            <td><%= order.total_to_pay %></td>
-            <td><div><%= "Data: #{order.order_date.strftime("%H:%M - %d/%m/%Y")}" %><br>
-                   <%= "Chegada: #{order.expected_arrival.strftime("%H:%M - %d/%m/%Y")}" %><br>
-                   <%= "Quantidade de Pizzas: #{order.qtd_pizzas}" %>
-          </div></td>
-            <td><% order.pizzas.each do |pizza| %>
-                <%= "#{pizza.name} [ #{pizza.quantity} ]" %><br>
-              <% end %></td>
-            <td><%= order.status %></td>
+            <th>Código da Pedido</th>
+            <th>Total a Pagar</th>
+            <th>Informações</th>
+            <th>Pizzas</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if current_user.orders.last == nil %>
+            <tr>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+          <% else %>
+            <% current_user.orders.each do |order| %>
+              <tr>
+                <td><%= order.id %></td>
+                <td><%= order.total_to_pay %></td>
+                <td><div><%= "Data: #{order.order_date.strftime("%H:%M - %d/%m/%Y")}" %><br>
+                 <%= "Chegada: #{order.expected_arrival.strftime("%H:%M - %d/%m/%Y")}" %><br>
+                 <%= "Quantidade de Pizzas: #{order.qtd_pizzas}" %>
+                </div></td>
+                <td><% order.pizzas.each do |pizza| %>
+                      <%= "#{pizza.name} [ #{pizza.quantity} ]" %><br>
+                    <% end %></td>
+                <td><%= order.status %></td>
+              </tr>
             <% end %>
-          <% end %>    
-          </tr>        
-            </tbody>
-          </table>
-        </div>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% else %>
+    <div style="background: #600000 !important"  class="center jumbotron">
+      <h1>Bem-Vindo(a) <%= current_user.name %></h1>
+
+      <h2>
+        Faça seu pedido e aproveite as pizzas mais gostosas da região!
+      </h2>
+    </div>
+
+    <div style="background: #600000 !important"  class="center jumbotron">
+      <div class="span3">
+        <h2>Sobre Nós</h2>
+        <p>GepetoHut é uma pizzaria que torna possível pedir uma pizza de sua casa através da internet.</p>
+      </div>
+    </div>
+  <% end %>
 <% else %>
+  <div style="background: #600000 !important"  class="center jumbotron">
+    <h1>Bem-Vindo(a) à Gepetohut</h1>
 
-<div style="background: #600000 !important"  class="center jumbotron">
-  <h1>Bem-Vindo(a) à Gepetohut</h1>
+    <h2>
+      Faça seu pedido e aproveite as pizzas mais gostosas da região!
+    </h2>
 
-  <h2>
-    Faça seu pedido e aproveite as pizzas mais gostosas da região!
-  </h2>
+    <%= link_to "Cadastre-se Agora!", new_user_registration_path, class: "btn btn-lg btn-primary btn-sample", style: "color: white" %>
+  </div>
 
-  <%= link_to "Cadastre-se Agora!", new_user_registration_path, class: "btn btn-lg btn-primary btn-sample", style: "color: white" %>
-</div>
-
-<div style="background: #600000 !important"  class="center jumbotron">
-<div class="span3">
-  <h2>Sobre Nós</h2>
-  <p>GepetoHut é uma pizzaria que torna possível pedir uma pizza de sua casa através da internet.</p>
-</div>
-</div>
+  <div style="background: #600000 !important"  class="center jumbotron">
+    <div class="span3">
+      <h2>Sobre Nós</h2>
+      <p>GepetoHut é uma pizzaria que torna possível pedir uma pizza de sua casa através da internet.</p>
+    </div>
+  </div>
 <% end %>

@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  get 'make_order/index'
-
-  get 'make_order/make_order'
-  post 'make_order/make_order'
-
   devise_for :users
 
   resources :users, only: [:index, :show]
@@ -12,11 +7,7 @@ Rails.application.routes.draw do
 
   root 'home_page#index'
 
-  resources :ingredients
-
   resources :orders
-
-  resources :customers
 
   resources :pizzas
 

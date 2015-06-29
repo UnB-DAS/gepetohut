@@ -28,5 +28,7 @@
     </tbody>
   </table>
 
-  <%= button_to 'Fazer Nova Avaliação', new_evaluation_path, method: :get, class: "btn btn-primary" %>
+  <% if can? :create, Evaluation %>
+    <%= button_to 'Fazer Nova Avaliação', new_evaluation_path, method: :get, class: "btn btn-primary" %>
+  <% end %>
 </div>

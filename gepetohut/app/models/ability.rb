@@ -10,6 +10,7 @@ class Ability
         can :manage, Employee
         can :manage, Pizza
         can :update, Restaurant
+        can :update, Order
         can :read, :all
     elsif user.has_role? :customer
         can [:show, :update], User, id: user.id
