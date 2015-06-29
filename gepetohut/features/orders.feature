@@ -30,9 +30,9 @@ Cenário: Visualizar Pedido com sucesso
   Dado que eu sou gerente
   E eu estou na página inicial da aplicação
   E eu estou logado
-  Quando eu entro na página inicial de pizzas
+  Quando eu entro na página inicial de pedidos
   E eu clico no primeiro pedido listado
-  Então o sistema deve apresentar as informações relativas a esse pedido.
+  Então o sistema deve apresentar as informações relativas ao pedido.
 
 Cenário: Listar Pedido com sucesso
   Após o gerente ter feito o login na aplicação e entrado na página inicial de 

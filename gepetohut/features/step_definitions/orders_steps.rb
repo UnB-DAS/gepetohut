@@ -15,3 +15,17 @@ end
 Então(/^o sistema deve apresentar as informações relativas ao pedido.$/) do
   visit order_path(@order)
 end
+
+Quando(/^eu entro na página inicial de pedidos$/) do
+  @order = FactoryGirl.create( :order )
+
+  visit orders_path
+end
+
+E(/^eu clico no primeiro pedido listado$/) do
+  find( "#100-row" ).click
+end
+
+Então(/^o sistema deve apresentar as informações relativas ao pedido.$/) do
+  visit order_path(@order)
+end

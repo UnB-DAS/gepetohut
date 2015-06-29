@@ -18,7 +18,7 @@
 
     <tbody>
       <% @orders.each do |order| %>
-        <tr data-link="<%= order_path(order) %>">
+        <tr id="<%= order.id.to_s %>-row" data-link="<%= order_path(order) %>">
           <td><%= order.id %></td>
           <td><%= order.user.name %></td>
           <td><%= order.total_to_pay %></td>
