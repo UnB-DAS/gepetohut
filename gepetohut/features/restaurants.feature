@@ -19,7 +19,7 @@ Cenário: Cadastrar Restaurante com sucesso
   E eu estou logado
   Quando eu entro na página inicial de restaurantes
   E eu clico e acesso a página de cadastro de restaurantes
-  E eu preencho o campo nome GepetoHut: Ceilândia
+  E eu preencho o campo nome Ceilandia
   E eu preencho o campo de entregadores com 2
   E eu preencho o campo de pizzaiolos com 3
   E eu clico no botão de atualizar restaurante
@@ -34,8 +34,8 @@ Cenário: Visualizar Restaurante com sucesso
   E eu estou na página inicial da aplicação
   E eu estou logado
   Quando eu entro na página inicial de restaurantes
-  E eu clico no restaurante de Ceilândia
-  Então o sistema deve apresentar as informações relativas a unidade de Ceilândia
+  E eu clico no restaurante de Ceilandia
+  Então o sistema deve apresentar as informações relativas a unidade de Ceilandia
 
 Cenário: Listar Restaurantes com sucesso
   Após o adminsitrados ter feito o login na aplicação e entrado na página inicial de 
@@ -58,7 +58,7 @@ Cenário: Fechar Restaurante com sucesso
   E eu estou na página inicial da aplicação
   E eu estou logado
   Quando eu entro na página inicial de restaurantes
-  E eu fecho a unidade de Ceilândia
-  E eu confirmo o fechamento da unidade de Ceilândia
+  E eu fecho a unidade de Ceilandia
+  E eu confirmo o fechamento da unidade de Ceilandia
   Então o sistema deve retonar uma lista contendo todas as unidades cadastradas
-  Mas sem a unidade de Ceilândia
+  Mas sem a unidade de Ceilandia

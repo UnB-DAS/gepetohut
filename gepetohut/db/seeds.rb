@@ -35,9 +35,10 @@ pizzas = Pizza.create(
 #
 restaurants = Restaurant.create(
   [
-    { name: "GepetoHut: Taguatinga Sul", qtd_delivery: 5, qtd_pizzaiolo: 5 },
-    { name: "GepetoHut: Taguatinga Norte", qtd_delivery: 5, qtd_pizzaiolo: 6 },
-    { name: "GepetoHut: Taguatinga Centro", qtd_delivery: 7, qtd_pizzaiolo: 6 }
+    { name: "GepetoHut: Taguatinga Sul", qtd_delivery: 5, qtd_pizzaiolo: 5, qtd_income: 2000.00, qtd_expense: 650.00 },
+    { name: "GepetoHut: Taguatinga Norte", qtd_delivery: 5, qtd_pizzaiolo: 6, qtd_income: 3500.00, qtd_expense: 800.00 },
+    { name: "GepetoHut: Taguatinga Centro", qtd_delivery: 7, qtd_pizzaiolo: 6,
+     qtd_income: 2450.00, qtd_expense: 1200.00 }
   ]
 )
 

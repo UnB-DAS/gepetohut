@@ -17,7 +17,7 @@
 
     <tbody>
       <% @restaurants.each do |restaurant| %>
-        <tr data-link="<%= restaurant_path(restaurant) %>">
+        <tr id="<%= restaurant.id.to_s %>-res" data-link="<%= restaurant_path(restaurant) %>">
           <td><%= restaurant.name %></td>
           <td><%= restaurant.qtd_delivery %></td>
           <td><%= restaurant.qtd_pizzaiolo %></td>

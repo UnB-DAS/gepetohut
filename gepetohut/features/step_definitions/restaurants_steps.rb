@@ -28,3 +28,7 @@ Então(/^o sistema deve apresentar as informações relativas ao restaurante$/) 
   visit restaurant_path(@restaurant)  
 end
 
+E( /^eu clico no restaurante de Ceilandia$/ ) do 
+  find( '#100-res' ).click
+end
+
