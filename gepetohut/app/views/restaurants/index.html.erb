@@ -23,8 +23,8 @@
           <td><%= restaurant.qtd_pizzaiolo %></td>
           <td><%= number_to_currency(restaurant.qtd_income) %></td>
           <td><%= number_to_currency(restaurant.qtd_expense) %></td>
-          <td><%= button_to 'Editar', edit_restaurant_path(restaurant), method: :get, class: "btn btn-primary" %></td>
-          <td><%= button_to 'Remover', restaurant, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+          <td><%= button_to 'Atualizar', edit_restaurant_path(restaurant), method: :get, class: "btn btn-primary" %></td>
+          <td><%= button_to 'Fechar Unidade', restaurant, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
         </tr>
       <% end %>
     </tbody>
