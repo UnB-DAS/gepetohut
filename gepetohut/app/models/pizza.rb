@@ -3,7 +3,5 @@ class Pizza < ActiveRecord::Base
   belongs_to :order
   has_many :orders
 
-  PRESENT = true
-
   validates_presence_of :name, :price
 end

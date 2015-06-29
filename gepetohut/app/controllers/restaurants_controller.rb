@@ -29,9 +29,12 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(restaurant_params)
 
+    @restaurant.qtd_income = 1000.00
+    @restaurant.qtd_expense = 500.00
+
     respond_to do |format|
       if @restaurant.save
-        format.html { redirect_to @restaurant, notice: 'Restaurant was successfully created.' }
+        format.html { redirect_to @restaurant, notice: 'Restaurante criado com sucesso.' }
         format.json { render :show, status: :created, location: @restaurant }
       else
         format.html { render :new }
@@ -45,7 +48,7 @@ class RestaurantsController < ApplicationController
   def update
     respond_to do |format|
       if @restaurant.update(restaurant_params)
-        format.html { redirect_to @restaurant, notice: 'Restaurant was successfully updated.' }
+        format.html { redirect_to @restaurant, notice: 'Restaurante atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @restaurant }
       else
         format.html { render :edit }
@@ -59,7 +62,7 @@ class RestaurantsController < ApplicationController
   def destroy
     @restaurant.destroy
     respond_to do |format|
-      format.html { redirect_to restaurants_url, notice: 'Restaurant was successfully destroyed.' }
+      format.html { redirect_to restaurants_url, notice: 'Restaurante fechado com sucesso.' }
       format.json { head :no_content }
     end
   end

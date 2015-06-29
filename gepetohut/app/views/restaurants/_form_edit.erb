@@ -1,0 +1,63 @@
+<%= form_for(@restaurant) do |f| %>
+  <% if @restaurant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
+
+      <ul>
+      <% @restaurant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= f.label "Nome" %><br>
+    </div>
+    <div class="panel-body">
+      <%= f.text_field :name, size: "50", class: "form_control" %><br>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= f.label "Quantidade de Entregadores" %><br>
+    </div>
+    <div class="panel-body">
+      <%= f.text_field :qtd_delivery, size: "50", class: "form_control" %><br>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= f.label "Quantidade de Pizzaiolo" %><br>
+    </div>
+    <div class="panel-body">
+      <%= f.text_field :qtd_pizzaiolo, size: "50", class: "form_control" %><br>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= f.label "Faturamento Mensal" %><br>
+    </div>
+    <div class="panel-body">
+      <%= f.text_field :qtd_income, size: "50", class: "form_control" %><br>
+    </div>
+  </div>
+  
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <%= f.label "Despesa Mensal" %><br>
+    </div>
+    <div class="panel-body">
+      <%= f.text_field :qtd_expense, size: "50", class: "form_control" %><br>
+    </div>
+  </div>
+  
+
+  <div class="actions">
+    <%= f.submit "Atualizar Restaurante", class: "btn btn-success" %>
+  </div>
+<% end %>
