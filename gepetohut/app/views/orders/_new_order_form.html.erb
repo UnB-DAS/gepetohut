@@ -33,7 +33,7 @@
       </tr>
     <% else %>
       <% Pizza.where( is_menu: true ).each do |pizza| %>
-        <tr>
+        <tr id="<%= pizza.name.delete(' ') %>-row">
           <td><%= pizza.id %></td>
           <td><%= pizza.name %></td>
           <td>R$ <%= pizza.price %></td>
@@ -44,7 +44,7 @@
               <%= builder.hidden_field :price, value: pizza.price %>
               <%= builder.hidden_field :status, value: "Fazendo" %>
               <%= builder.hidden_field :is_menu, value: false %>
-              <%= builder.number_field :quantity, class: "form-control bfh-number", min: "0", max: "99", type: "number", value: "0" %>
+              <%= builder.number_field :quantity, class: "form-control bfh-number", min: "0", max: "99", type: "number", value: "0",  id: "quantity_pizzas_order" %>
             <% end %>
           </div></td>
         </tr>
@@ -54,10 +54,8 @@
           <% if pizza.quantity.nil? || pizza.quantity == 0 %>
             <% @order.pizzas.delete( pizza ) %>
           <% else %>
-            <% puts "Pizza no pedido: #{pizza.name}" %>
           <% end %>
         <% end %>
-      <% puts "Quantidade de pizzas no pedido: #{@order.pizzas.size}" %>
     <% end %>
     </tbody>
   </table>

@@ -9,16 +9,15 @@ Funcionalidade: Manter Pedido
   e deleção de pedidos.
 
 Cenário: Cadastrar Pedido com sucesso
-  Após o gerente ter feito o login na aplicação e entrado na página inicial da 
+  Após o cliente ter feito o login na aplicação e entrado na página inicial da 
   pedido, ele entra na página de cadastro de pedidos, insere os dados relativos 
   ao pedido. Ao finalizar o cadastro uma mensagem contendo um 
   resumo do novo pedido é apresentado.
 
-  Dado que eu sou gerente
+  Dado que eu sou cliente
   E eu estou na página inicial da aplicação
   E eu estou logado
-  Quando eu entro na página principal de pedidos
-  E clico em cadastrar novo pedido
+  Quando eu entro na página de cadastrar pedido
   E eu preencho o campo quantidade com 1 da pizza Americana
   E eu clico no botão de realização de pedido
   Então o sistema deve apresentar as informações relativas ao pedido.
