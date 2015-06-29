@@ -50,3 +50,16 @@ Então( /^o sistema deve retonar uma lista contendo todas as unidades cadastrada
     find( "tbody" ).find("##{restaurant.id}-res").find( "td", text: "#{restaurant.name}" )
   end
 end
+
+E( /^eu fecho a unidade de Ceilandia$/) do
+  find( "tbody" ).find( '#100-res' ).click_button( "Fechar Unidade" )
+end
+
+E( /^eu confirmo o fechamento da unidade de (.*)$/) do |name_restaurant|
+  restaurant = @restaurants.find_by_name( name_restaurant )
+  @restaurants.delete( restaurant )
+end
+
+Mas( /^sem a unidade de Ceilandia$/) do
+  expect( @restaurants.include?( @restaurant ) ).to be false
+end
