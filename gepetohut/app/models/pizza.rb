@@ -5,6 +5,5 @@ class Pizza < ActiveRecord::Base
 
   PRESENT = true
 
-  validates :name, presence: PRESENT
-  validates :price, presence: PRESENT
+  validates_presence_of :name, :price
 end
