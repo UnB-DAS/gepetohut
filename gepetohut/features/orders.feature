@@ -43,7 +43,7 @@ Cenário: Listar Pedido com sucesso
   E eu estou na página inicial da aplicação
   E eu estou logado
   Quando eu entro na página inicial de pedidos
-  Então o sistema deve retonar uma tabela contendo todas os pedidos
+  Então o sistema deve retonar uma tabela contendo todas os pedidos.
 
 Cenário: Cancelar Pedido com sucesso
   Após o gerente ter feito o login na aplicação e entrada na página inicial de 

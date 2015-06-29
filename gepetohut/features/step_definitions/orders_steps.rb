@@ -26,6 +26,6 @@ E(/^eu clico no primeiro pedido listado$/) do
   find( "#100-row" ).click
 end
 
-Então(/^o sistema deve apresentar as informações relativas ao pedido.$/) do
-  visit order_path(@order)
+Então(/^o sistema deve retonar uma tabela contendo todas os pedidos.$/) do
+  visit orders_path
 end
