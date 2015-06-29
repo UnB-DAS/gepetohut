@@ -19,7 +19,7 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe EvaluationsController, type: :controller do
-
+  login_admin
   # This should return the minimal set of attributes required to create a valid
   # Evaluation. As you add validations to Evaluation, be sure to
   # adjust the attributes here as well.
