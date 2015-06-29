@@ -23,6 +23,7 @@ RSpec.describe PizzasController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Pizza. As you add validations to Pizza, be sure to
   # adjust the attributes here as well.
+  login_admin
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
   }
@@ -39,7 +40,7 @@ RSpec.describe PizzasController, type: :controller do
   describe "GET #index" do
     it "assigns all pizzas as @pizzas" do
       pizza = Pizza.create! valid_attributes
-      get :index, {}, valid_session
+      get :index, {}
       expect(assigns(:pizzas)).to eq([pizza])
     end
   end
@@ -47,14 +48,14 @@ RSpec.describe PizzasController, type: :controller do
   describe "GET #show" do
     it "assigns the requested pizza as @pizza" do
       pizza = Pizza.create! valid_attributes
-      get :show, {:id => pizza.to_param}, valid_session
+      get :show, {:id => pizza.to_param}
       expect(assigns(:pizza)).to eq(pizza)
     end
   end
 
   describe "GET #new" do
     it "assigns a new pizza as @pizza" do
-      get :new, {}, valid_session
+      get :new, {}
       expect(assigns(:pizza)).to be_a_new(Pizza)
     end
   end
@@ -62,7 +63,7 @@ RSpec.describe PizzasController, type: :controller do
   describe "GET #edit" do
     it "assigns the requested pizza as @pizza" do
       pizza = Pizza.create! valid_attributes
-      get :edit, {:id => pizza.to_param}, valid_session
+      get :edit, {:id => pizza.to_param}
       expect(assigns(:pizza)).to eq(pizza)
     end
   end
@@ -71,30 +72,30 @@ RSpec.describe PizzasController, type: :controller do
     context "with valid params" do
       it "creates a new Pizza" do
         expect {
-          post :create, {:pizza => valid_attributes}, valid_session
+          post :create, {:pizza => valid_attributes}
         }.to change(Pizza, :count).by(1)
       end
 
       it "assigns a newly created pizza as @pizza" do
-        post :create, {:pizza => valid_attributes}, valid_session
+        post :create, {:pizza => valid_attributes}
         expect(assigns(:pizza)).to be_a(Pizza)
         expect(assigns(:pizza)).to be_persisted
       end
 
       it "redirects to the created pizza" do
-        post :create, {:pizza => valid_attributes}, valid_session
+        post :create, {:pizza => valid_attributes}
         expect(response).to redirect_to(Pizza.last)
       end
     end
 
     context "with invalid params" do
       it "assigns a newly created but unsaved pizza as @pizza" do
-        post :create, {:pizza => invalid_attributes}, valid_session
+        post :create, {:pizza => invalid_attributes}
         expect(assigns(:pizza)).to be_a_new(Pizza)
       end
 
       it "re-renders the 'new' template" do
-        post :create, {:pizza => invalid_attributes}, valid_session
+        post :create, {:pizza => invalid_attributes}
         expect(response).to render_template("new")
       end
     end
@@ -108,20 +109,20 @@ RSpec.describe PizzasController, type: :controller do
 
       it "updates the requested pizza" do
         pizza = Pizza.create! valid_attributes
-        put :update, {:id => pizza.to_param, :pizza => new_attributes}, valid_session
+        put :update, {:id => pizza.to_param, :pizza => new_attributes}
         pizza.reload
         skip("Add assertions for updated state")
       end
 
       it "assigns the requested pizza as @pizza" do
         pizza = Pizza.create! valid_attributes
-        put :update, {:id => pizza.to_param, :pizza => valid_attributes}, valid_session
+        put :update, {:id => pizza.to_param, :pizza => valid_attributes}
         expect(assigns(:pizza)).to eq(pizza)
       end
 
       it "redirects to the pizza" do
         pizza = Pizza.create! valid_attributes
-        put :update, {:id => pizza.to_param, :pizza => valid_attributes}, valid_session
+        put :update, {:id => pizza.to_param, :pizza => valid_attributes}
         expect(response).to redirect_to(pizza)
       end
     end
@@ -129,13 +130,13 @@ RSpec.describe PizzasController, type: :controller do
     context "with invalid params" do
       it "assigns the pizza as @pizza" do
         pizza = Pizza.create! valid_attributes
-        put :update, {:id => pizza.to_param, :pizza => invalid_attributes}, valid_session
+        put :update, {:id => pizza.to_param, :pizza => invalid_attributes}
         expect(assigns(:pizza)).to eq(pizza)
       end
 
       it "re-renders the 'edit' template" do
         pizza = Pizza.create! valid_attributes
-        put :update, {:id => pizza.to_param, :pizza => invalid_attributes}, valid_session
+        put :update, {:id => pizza.to_param, :pizza => invalid_attributes}
         expect(response).to render_template("edit")
       end
     end
@@ -145,13 +146,13 @@ RSpec.describe PizzasController, type: :controller do
     it "destroys the requested pizza" do
       pizza = Pizza.create! valid_attributes
       expect {
-        delete :destroy, {:id => pizza.to_param}, valid_session
+        delete :destroy, {:id => pizza.to_param}
       }.to change(Pizza, :count).by(-1)
     end
 
     it "redirects to the pizzas list" do
       pizza = Pizza.create! valid_attributes
-      delete :destroy, {:id => pizza.to_param}, valid_session
+      delete :destroy, {:id => pizza.to_param}
       expect(response).to redirect_to(pizzas_url)
     end
   end
