@@ -6,6 +6,10 @@
   <%= render 'new_order_form' %>
 </div>
 
-<div class="container">
-  <%= link_to raw( "Voltar" ), orders_path, class: "btn btn-primary", style: "color: white" %>
+<div class="span7 text-center" class="container">
+  <% if can? :read, Order %>
+    <%= link_to raw( "Voltar" ), orders_path, class: "btn btn-primary", style: "color: white" %>
+  <% else %>
+    <%= link_to raw( "Voltar" ), home_page_index_path, class: "btn btn-primary", style: "color: white" %>
+  <% end %>
 </div>
