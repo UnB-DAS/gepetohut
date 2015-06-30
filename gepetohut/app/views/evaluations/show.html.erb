@@ -25,11 +25,16 @@
         <strong>Rating pizza:</strong>
         <%= @evaluation.rating_pizza %>
      </p>
-	</div>
+  </div>
   </div>
 </div>
 
 <div class="container">
   <%= button_to "Atualizar Avaliação", edit_evaluation_path(@evaluation), method: :get, class: "btn btn-success" %>
+
+  <% if can? :read, Evaluation %>
   <%= link_to raw( "Voltar" ), evaluations_path, class: "btn btn-primary", style: "color: white" %>
+  <% else %>
+    <%= link_to raw( "Voltar" ), home_page_index_path, class: "btn btn-primary", style: "color: white" %>
+  <% end %>
 </div>

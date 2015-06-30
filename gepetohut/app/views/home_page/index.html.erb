@@ -46,7 +46,7 @@
                 <td><%= order.status %></td>
                 <td class="span7 text-center">
                 <% if order.status.eql?( "Entregue" ) %>
-                  <%= button_to 'Avaliar Serviço', new_evaluation_path, method: :get, class: "btn btn-primary" %>
+                  <%= button_to 'Avaliar Serviço', edit_evaluation_path(order.evaluation), method: :get, class: "btn btn-primary" %>
                 <% end %>
                 </td>
               </tr>

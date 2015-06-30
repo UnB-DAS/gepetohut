@@ -7,5 +7,9 @@
 </div>
 
 <div class="container">
-  <%= link_to raw( "Voltar" ), evaluations_path, class: "btn btn-primary", style: "color: white" %>
+  <% if can? :read, Evaluation %>
+    <%= link_to raw( "Voltar" ), evaluations_path, class: "btn btn-primary", style: "color: white" %>
+  <% else %>
+    <%= link_to raw( "Voltar" ), home_page_index_path, class: "btn btn-primary", style: "color: white" %>
+  <% end %>
 </div>

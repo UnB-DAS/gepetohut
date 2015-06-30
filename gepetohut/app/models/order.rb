@@ -9,6 +9,10 @@ class Order < ActiveRecord::Base
   SENDING = "Enviando"
   DELIVERED = "Entregue"
 
+  def initialize( *params )super( *params )
+    self.evaluation = Evaluation.create( rating_pizzeria: nil, rating_pizza: nil, rating_service: nil )
+  end
+
   def define_status
     doing_counter = 0
     sending_counter = 0

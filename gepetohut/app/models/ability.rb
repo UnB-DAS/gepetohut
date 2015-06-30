@@ -6,6 +6,7 @@ class Ability
 
     if user.has_role? :admin
         can :manage, :all
+        cannot :create, :Evaluation
     elsif user.has_role? :manager
         can :manage, Employee
         can :manage, Pizza
@@ -15,7 +16,7 @@ class Ability
     elsif user.has_role? :customer
         can [:show, :update], User, id: user.id
         can [:create, :show], Order
-        can :create, Evaluation
+        can [:update, :show], Evaluation
         can :read, Pizza
     end
   end
