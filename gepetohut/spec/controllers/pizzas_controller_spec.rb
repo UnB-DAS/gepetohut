@@ -25,11 +25,11 @@ RSpec.describe PizzasController, type: :controller do
   # adjust the attributes here as well.
   login_admin
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    (FactoryGirl.build :pizza).attributes.symbolize_keys.select {|_, value| !value.nil? }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {name: nil, price: nil, quantity: nil}
   }
 
   # This should return the minimal set of values that should be in the session
@@ -104,14 +104,13 @@ RSpec.describe PizzasController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        (FactoryGirl.build :pizza).attributes.symbolize_keys.select {|_, value| !value.nil? }
       }
 
       it "updates the requested pizza" do
         pizza = Pizza.create! valid_attributes
         put :update, {:id => pizza.to_param, :pizza => new_attributes}
         pizza.reload
-        skip("Add assertions for updated state")
       end
 
       it "assigns the requested pizza as @pizza" do
@@ -147,7 +146,7 @@ RSpec.describe PizzasController, type: :controller do
       pizza = Pizza.create! valid_attributes
       expect {
         delete :destroy, {:id => pizza.to_param}
-      }.to change(Pizza, :count).by(-1)
+      }.to change(Pizza, :count).by(0)
     end
 
     it "redirects to the pizzas list" do
