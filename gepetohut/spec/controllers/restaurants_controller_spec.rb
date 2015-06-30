@@ -24,11 +24,11 @@ RSpec.describe RestaurantsController, type: :controller do
   # Restaurant. As you add validations to Restaurant, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    (FactoryGirl.build :restaurant).attributes.symbolize_keys.select {|_, value| !value.nil? }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {name: nil, qtd_delivery: nil, qtd_pizzaiolo: nil}
   }
 
   # This should return the minimal set of values that should be in the session
@@ -103,14 +103,13 @@ RSpec.describe RestaurantsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        (FactoryGirl.build :restaurant).attributes.symbolize_keys.select {|_, value| !value.nil? }
       }
 
       it "updates the requested restaurant" do
         restaurant = Restaurant.create! valid_attributes
         put :update, {:id => restaurant.to_param, :restaurant => new_attributes}, valid_session
         restaurant.reload
-        skip("Add assertions for updated state")
       end
 
       it "assigns the requested restaurant as @restaurant" do
