@@ -5,6 +5,8 @@ class Order < ActiveRecord::Base
 
   accepts_nested_attributes_for :pizzas
 
+  usar_como_dinheiro :total_to_pay
+
   DOING = "Fazendo"
   SENDING = "Enviando"
   DELIVERED = "Entregue"

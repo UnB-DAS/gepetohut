@@ -8,7 +8,7 @@
     <div class="panel-body">
       <p>
         <strong>Total a Pagar:</strong>
-        <%= @order.total_to_pay %>
+        <%= "R$ #{@order.total_to_pay.real}" %>
       </p>
 
       <p>
@@ -30,12 +30,16 @@
 
       <p>
         <strong>Data do Pedido:</strong>
-        <%= @order.order_date.strftime("%H:%M - %d/%m/%Y") %>
+        <%= @order.order_date.strftime("%d/%m/%Y") %>
+      </p>
+      <p>
+        <strong>Hora do Pedido:</strong>
+        <%= @order.order_date.strftime("%H:%M") %>
       </p>
 
       <p>
-        <strong>Estimativa de Chegada:</strong>
-        <%= @order.expected_arrival.strftime("%H:%M - %d/%m/%Y") %>
+        <strong>Estimativa de Horário de Chegada:</strong>
+        <%= @order.expected_arrival.strftime("%H:%M") %>
       </p>
     </div>
   </div>
