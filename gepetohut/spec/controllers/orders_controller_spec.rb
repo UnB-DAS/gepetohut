@@ -24,8 +24,7 @@ RSpec.describe OrdersController, type: :controller do
   # Order. As you add validations to Order, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+    (FactoryGirl.build :order).attributes.symbolize_keys.select {|_, value| !value.nil? }  }
 
   let(:invalid_attributes) {
     skip("Add a hash of attributes invalid for your model")
@@ -86,31 +85,18 @@ RSpec.describe OrdersController, type: :controller do
         expect(response).to redirect_to(Order.last)
       end
     end
-
-    context "with invalid params" do
-      it "assigns a newly created but unsaved order as @order" do
-        post :create, {:order => invalid_attributes}, valid_session
-        expect(assigns(:order)).to be_a_new(Order)
-      end
-
-      it "re-renders the 'new' template" do
-        post :create, {:order => invalid_attributes}, valid_session
-        expect(response).to render_template("new")
-      end
-    end
   end
 
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+       (FactoryGirl.build :order).attributes.symbolize_keys.select {|_, value| !value.nil? } 
       }
 
       it "updates the requested order" do
         order = Order.create! valid_attributes
         put :update, {:id => order.to_param, :order => new_attributes}, valid_session
         order.reload
-        skip("Add assertions for updated state")
       end
 
       it "assigns the requested order as @order" do
@@ -123,20 +109,6 @@ RSpec.describe OrdersController, type: :controller do
         order = Order.create! valid_attributes
         put :update, {:id => order.to_param, :order => valid_attributes}, valid_session
         expect(response).to redirect_to(order)
-      end
-    end
-
-    context "with invalid params" do
-      it "assigns the order as @order" do
-        order = Order.create! valid_attributes
-        put :update, {:id => order.to_param, :order => invalid_attributes}, valid_session
-        expect(assigns(:order)).to eq(order)
-      end
-
-      it "re-renders the 'edit' template" do
-        order = Order.create! valid_attributes
-        put :update, {:id => order.to_param, :order => invalid_attributes}, valid_session
-        expect(response).to render_template("edit")
       end
     end
   end

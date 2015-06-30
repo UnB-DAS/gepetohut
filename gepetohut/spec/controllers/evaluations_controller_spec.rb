@@ -24,11 +24,11 @@ RSpec.describe EvaluationsController, type: :controller do
   # Evaluation. As you add validations to Evaluation, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    (FactoryGirl.build :evaluation).attributes.symbolize_keys.select {|_, value| !value.nil? }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {rating_pizzeria: nil ,rating_service: nil ,rating_pizza: nil ,description: nil }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -86,31 +86,18 @@ RSpec.describe EvaluationsController, type: :controller do
         expect(response).to redirect_to(Evaluation.last)
       end
     end
-
-    context "with invalid params" do
-      it "assigns a newly created but unsaved evaluation as @evaluation" do
-        post :create, {:evaluation => invalid_attributes}, valid_session
-        expect(assigns(:evaluation)).to be_a_new(Evaluation)
-      end
-
-      it "re-renders the 'new' template" do
-        post :create, {:evaluation => invalid_attributes}, valid_session
-        expect(response).to render_template("new")
-      end
-    end
   end
 
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        (FactoryGirl.build :evaluation).attributes.symbolize_keys.select {|_, value| !value.nil? }
       }
 
       it "updates the requested evaluation" do
         evaluation = Evaluation.create! valid_attributes
         put :update, {:id => evaluation.to_param, :evaluation => new_attributes}, valid_session
         evaluation.reload
-        skip("Add assertions for updated state")
       end
 
       it "assigns the requested evaluation as @evaluation" do
@@ -131,12 +118,6 @@ RSpec.describe EvaluationsController, type: :controller do
         evaluation = Evaluation.create! valid_attributes
         put :update, {:id => evaluation.to_param, :evaluation => invalid_attributes}, valid_session
         expect(assigns(:evaluation)).to eq(evaluation)
-      end
-
-      it "re-renders the 'edit' template" do
-        evaluation = Evaluation.create! valid_attributes
-        put :update, {:id => evaluation.to_param, :evaluation => invalid_attributes}, valid_session
-        expect(response).to render_template("edit")
       end
     end
   end
