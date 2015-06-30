@@ -20,8 +20,12 @@ E( /^eu preencho o campo rg com (.*)$/) do |rg_employee|
   page.fill_in( "rg-employee", with: rg_employee )
 end
 
-E(/^eu clico no botão de criação de Cadastrar Dados do Funcionário$/) do
+E( /^eu clico no botão de criação de Cadastrar Dados do Funcionário$/) do
   click_button( "Cadastrar Dados do Funcionário" )
+end
+
+E( /^eu clico no Funcionário chamado (.*)$/) do |nome_employee|
+  find( "##{nome_employee.delete(' ')}-row" ).click
 end
 
 Então( /^o sistema deve apresentar as informações relativas ao funcionário$/) do

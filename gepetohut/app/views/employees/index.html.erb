@@ -18,7 +18,7 @@
 
     <tbody>
       <% @employees.each do |employee| %>
-        <tr data-link="<%= employee_path(employee) %>">
+        <tr id="<%= employee.name.delete(' ') %>-row" data-link="<%= employee_path(employee) %>">
           <td><%= employee.name %></td>
           <td><%= employee.cpf %></td>
           <td><%= employee.rg %></td>
