@@ -63,4 +63,4 @@ Cenário: Deletar Funcionário com sucesso
   E eu removo o funcionário José Silva e Silva
   E eu confirmo a deleção do funcionário José Silva e Silva
   Então o sistema deve retonar uma tabela contendo todos os funcionários cadastrados
-  Mas sem o funcionário José Silva e Silvá
+  Mas sem o funcionário José Silva e Silva

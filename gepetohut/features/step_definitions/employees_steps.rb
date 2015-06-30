@@ -1,5 +1,6 @@
 Quando( /^eu entro na página inicial de funcionários$/) do
   @employee = FactoryGirl.create( :employee )
+  @employees = Employee.all
 
   visit employees_path
 end
@@ -30,4 +31,31 @@ end
 
 Então( /^o sistema deve apresentar as informações relativas ao funcionário$/) do
   visit employee_path(@employee)
+end
+
+Então( /^o sistema deve retonar uma tabela contendo todos os funcionários cadastrados$/) do
+    find( "table" )
+  find( "thead" ).find( "tr" ).find( "th", text: "Nome" )
+  find( "thead" ).find( "tr" ).find( "th", text: "CPF" )
+  find( "thead" ).find( "tr" ).find( "th", text: "RG" )
+  find( "thead" ).find( "tr" ).find( "th", text: "Telefone" )
+  find( "thead" ).find( "tr" ).find( "th", text: "Salário" )
+  find( "thead" ).find( "tr" ).find( "th", text: "Pizzaria" )
+
+  @employees.each do |employee|
+    find( "tbody" ).find("##{employee.name.delete(' ')}-row").find( "td", text: "#{employee.name}" )
+  end
+end
+
+E( /^eu removo o funcionário (.*)$/) do |nome_employee|
+  find( "tbody" ).find( "##{nome_employee.delete(' ')}-row" ).click_button( "Remover" )
+end
+
+E( /^eu confirmo a deleção do funcionário (.*)$/) do |nome_employee|
+  employee_actual = @employees.find_by( name: nome_employee )
+  @employees.delete( employee_actual )
+end
+
+Mas( /^sem o funcionário (.*)$/) do |nome_employee|
+  expect( @employees.include?( @employee ) ).to be false
 end
