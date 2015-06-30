@@ -98,7 +98,6 @@ RSpec.describe EvaluationsController, type: :controller do
         evaluation = Evaluation.create! valid_attributes
         put :update, {:id => evaluation.to_param, :evaluation => new_attributes}, valid_session
         evaluation.reload
-        skip("Add assertions for updated state")
       end
 
       it "assigns the requested evaluation as @evaluation" do
