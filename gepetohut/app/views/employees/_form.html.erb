@@ -58,15 +58,12 @@
       <%= f.label "Pizzaria" %><br>
     </div>
     <div class="panel-body">
-      <% restaurants = [] %>
-      <% Restaurant.all.each do |restaurant|  %>
-        <% restaurants << restaurant.name %>
-      <% end %>
-      <%= f.select :restaurant, restaurants %>
+      <%= f.select :restaurant_id, Restaurant.all.collect { |restaurant| [ restaurant.name, restaurant.id ] } %>
     </div>
   </div>
 
   <div class="actions">
     <%= f.submit "Cadastrar Dados do Funcionário", class: "btn btn-success" %>
+    <% puts "Employee restaurant: #{f.object.restaurant.name}" %>
   </div>
 <% end %>
