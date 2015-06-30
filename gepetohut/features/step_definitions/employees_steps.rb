@@ -1,4 +1,6 @@
 Quando( /^eu entro na página inicial de funcionários$/) do
+  @employee = FactoryGirl.create( :employee )
+
   visit employees_path
 end
 
@@ -20,4 +22,8 @@ end
 
 E(/^eu clico no botão de criação de Cadastrar Dados do Funcionário$/) do
   click_button( "Cadastrar Dados do Funcionário" )
+end
+
+Então( /^o sistema deve apresentar as informações relativas ao funcionário$/) do
+  visit employee_path(@employee)
 end
