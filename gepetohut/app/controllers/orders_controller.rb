@@ -42,13 +42,11 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
 
-
     @order.status = "Fazendo"
     @order.order_date = Time.now
     @order.expected_arrival = (Time.now + 2.hours)
     @order.total_to_pay = @order.calculate_total_to_pay
     @order.qtd_pizzas = @order.calculate_quantity
-
 
     respond_to do |format|
       if @order.save
