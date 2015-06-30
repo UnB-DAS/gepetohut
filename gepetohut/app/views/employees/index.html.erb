@@ -8,7 +8,7 @@
       <tr>
         <th>Nome</th>
         <th>CPF</th>
-        <th>RH</th>
+        <th>RG</th>
         <th>Telefone</th>
         <th>Salário</th>
         <th>Pizzaria</th>
@@ -21,10 +21,10 @@
         <tr data-link="<%= employee_path(employee) %>">
           <td><%= employee.name %></td>
           <td><%= employee.cpf %></td>
-          <td><%= employee.rh %></td>
+          <td><%= employee.rg %></td>
           <td><%= employee.phone %></td>
           <td><%= employee.salary %></td>
-          <td><%= employee.restaurant %></td>
+          <td><%= employee.restaurant.name %></td>
           <td><%= button_to 'Editar', edit_employee_path(employee), method: :get, class: "btn btn-primary" %></td>
           <td><%= button_to 'Remover', employee, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-danger" %></td>
         </tr>

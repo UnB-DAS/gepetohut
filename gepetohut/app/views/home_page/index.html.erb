@@ -1,5 +1,5 @@
 <% if current_user.present? %>
-  <% if can? :create, Order %>
+  <% if current_user.has_role? :customer %>
     <div style="background: #600000 !important"  class="center jumbotron">
       <h1>Bem-Vindo(a) <%= current_user.name %></h1>
 
